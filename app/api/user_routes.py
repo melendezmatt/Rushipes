@@ -30,12 +30,12 @@ def get_single_pantry(id, pantryId):
     return pantry.to_dict()
 
 #Create Single Pantry ['POST']
-@user_routes.route('/<int:id>/new-pantry/', methods=['POST'])
+#@user_routes.route('/<int:id>/new-pantry/', methods=['POST'])
 
 
 
 #Update Single Pantry ['PUT']
-@user_routes.route('/<int:id>/pantry/<int:pantryId>', methods=['PUT'])
+#@user_routes.route('/<int:id>/pantry/<int:pantryId>', methods=['PUT'])
 
 
 
