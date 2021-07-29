@@ -1,0 +1,4 @@
+.pantry-info {
+    display: flex;
+    flex-direction: column;
+}
