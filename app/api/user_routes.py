@@ -35,7 +35,6 @@ def get_single_pantry(id, pantryId):
 def post_single_pantry(id):
     form = PantryForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-    print(form.data)
     if form.validate_on_submit():
         new_pantry = Pantry(
             user_id = id,
@@ -49,12 +48,23 @@ def post_single_pantry(id):
     return {"errors": form.errors}
 
 #Update Single Pantry ['PUT']
-#@user_routes.route('/<int:id>/pantry/<int:pantryId>', methods=['PUT'])
-
+@user_routes.route('/<int:id>/pantry/<int:pantryId>', methods=['PUT'])
+def edit_single_pantry(id, pantryId):
+    form = PantryForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        old_pantry = Pantry.query.filter(Pantry.user_id == id, Pantry.id == pantryId).first()
+        form.populate_obj(old_pantry)
+        old_pantry.pantry_name = form.data['pantry_name']
+        old_pantry.pantry_image_url = form.data['pantry_image_url']
+        old_pantry.location = form.data['location']
+        db.session.commit()
+        return old_pantry.to_dict()
+    return {"errors": form.errors}
 
 
 #Delete Single Pantry ['DELETE']
-@user_routes.route('/<int:id>/pantries/<int:pantryId>', methods=['DELETE'])
+@user_routes.route('/<int:id>/pantry/<int:pantryId>', methods=['DELETE'])
 def delete_single_pantry(id, pantryId):
     pantry = Pantry.query.filter(Pantry.user_id == id and Pantry.id == pantryId).first()
     db.session.delete(pantry)

@@ -1,7 +1,6 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField, IntegerField
+from wtforms import StringField
 from wtforms.validators import DataRequired
-from app.models import Pantry
 
 class PantryForm(FlaskForm):
     pantry_name=StringField('pantry_name', validators=[DataRequired()])

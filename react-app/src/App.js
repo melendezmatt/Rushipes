@@ -10,6 +10,7 @@ import User from './components/User';
 import AllPantries from './components/AllPantries';
 import SinglePantry from './components/SinglePantry';
 import NewPantryForm from './components/NewPantry';
+import EditPantryForm from './components/EditPantry';
 import { authenticate } from './store/session';
 
 function App() {
@@ -54,6 +55,9 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/users/:userId/new-pantry' exact={true}>
           <NewPantryForm />
+        </ProtectedRoute>
+        <ProtectedRoute path='/users/:userId/pantry/:pantryId/edit-pantry' exact={true}>
+          <EditPantryForm />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>

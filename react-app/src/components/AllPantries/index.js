@@ -21,6 +21,7 @@ const AllPantries = () => {
     const newPantry = async(e) => {
         history.push(`/users/${loggedInUser.id}/new-pantry`)
     }
+    
     return (
         <div className='outer-container'>
             <h1>{loggedInUser.username}'s Pantries</h1>

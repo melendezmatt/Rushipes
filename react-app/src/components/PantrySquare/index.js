@@ -1,5 +1,7 @@
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import DeletePantryButton from '../DeletePantryButton';
+import EditPantryButton from '../EditPantryButton';
 import './PantrySquare.css';
 
 const PantrySquare = ({ pantry }) => {
@@ -27,8 +29,8 @@ const PantrySquare = ({ pantry }) => {
                     {pantry.location}
                 </div>
             </div>
-            <div>Edit Button Here</div>
-            <div>Delete Button Here</div>
+            <EditPantryButton id={id} pantryId={pantry.id}/>
+            <DeletePantryButton id={id} pantryId={pantry.id}/>
         </div>
     )
 }

@@ -80,21 +80,22 @@ export const createOnePantry = (payload) => async (dispatch) => {
     }
 }
 
-export const editOnePantry = (id, payload) => async (dispatch) => {
-    const res = await fetch(`/api/users/${id}/pantries/${payload.id}`, {
+export const editOnePantry = (payload, pantryId) => async (dispatch) => {
+    const res = await fetch(`/api/users/${Number(payload.user_id)}/pantry/${pantryId}`, {
         method: 'PUT',
+        headers: {'Content-Type': 'application/json'},
         body: JSON.stringify(payload)
     });
 
     if (res.ok) {
-      const Pantry = await res.json();
-      dispatch(setOnePantry(Pantry));
-      return Pantry
+      const pantry = await res.json();
+      dispatch(setOnePantry(pantry));
+      return pantry
     }
 };
 
 export const removeOnePantry = (id, pantryId) => async (dispatch) => {
-    const res = await fetch(`/api/users/${id}/pantries/${pantryId}`, {
+    const res = await fetch(`/api/users/${id}/pantry/${pantryId}`, {
         method: 'DELETE'
     });
 
