@@ -1,14 +1,14 @@
 .pantry-buttons {
     display: flex;
     flex-direction: row;
-    margin-top: 18%;
+    margin-top: 35px;
 }
 
 .pantry-square {
     display: flex;
     flex: row;
     max-height: 450px;
-    max-width: 600px;
+    width: 550px;
     background-color: lightgray;
     margin: 10px;
 }

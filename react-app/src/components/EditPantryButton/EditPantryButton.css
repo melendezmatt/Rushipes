@@ -7,7 +7,7 @@
     font-weight: 500;
     line-height: 1;
     border-radius: 30px;
-    background: #fffffff8;
+    background: lightgray;
     cursor: pointer;
     transition: all 0.3s linear;
     margin: 5px;
@@ -15,16 +15,16 @@
 
 .edit-button button:focus {
     background-color: #664a16;
-    color: #fffffff8;
+    color: lightgray;
 }
 
 .edit-button button:active {
-background: #fffffff8;
+background: lightgray;
 color: #664a16;
 border: solid 1px #664a16;
 }
 
 .edit-button button:hover {
 background-color: #664a16;
-color: #fffffff8;
+color: lightgray;
 }

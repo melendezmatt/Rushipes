@@ -8,6 +8,9 @@ body {
     font-family: 'Poppins', sans-serif;
     list-style: none;
     box-sizing: border-box;
+    background-image: url('https://cdn.pixabay.com/photo/2017/08/10/14/09/restaurant-2623071_960_720.jpg');
+    background-size: cover;
+    height: 100vh;
 }
 
 /* Navbar */
