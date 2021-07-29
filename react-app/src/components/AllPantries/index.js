@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { getAllUserPantries} from '../../store/pantries';
 import AllPantriesContainer from '../AllPantriesContainer';
+import './AllPantries.css'
 
 const AllPantries = () => {
     const history = useHistory();
@@ -24,8 +25,14 @@ const AllPantries = () => {
 
     return (
         <div className='outer-container'>
-            <h1>{loggedInUser.username}'s Pantries</h1>
-            <button onClick={newPantry}> Add Pantry</button>
+            <div className='outer-header'>
+                <div className='outer-title'>
+                    <h1>{loggedInUser.username}'s Pantries</h1>
+                </div>
+                <div className='add-button'>
+                    <button onClick={newPantry}> Add Pantry</button>
+                </div>
+            </div>
             <AllPantriesContainer allPantries={Object.values(currPantries)}/>
         </div>
 

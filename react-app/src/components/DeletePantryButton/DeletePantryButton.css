@@ -1,18 +1,4 @@
-.outer-container{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.add-button {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.add-button button {
+.delete-button button {
     outline: none;
     display: block;
     border: solid 1px #664a16;
@@ -27,18 +13,18 @@
     margin: 5px;
 }
 
-.add-button button:focus {
+.delete-button button:focus {
     background-color: #664a16;
     color: #fffffff8;
 }
 
-.add-button button:active {
+.delete-button button:active {
 background: #fffffff8;
 color: #664a16;
 border: solid 1px #664a16;
 }
 
-.add-button button:hover {
+.delete-button button:hover {
 background-color: #664a16;
 color: #fffffff8;
 }
