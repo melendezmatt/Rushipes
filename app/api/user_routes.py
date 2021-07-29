@@ -35,6 +35,7 @@ def get_single_pantry(id, pantryId):
 def post_single_pantry(id):
     form = PantryForm()
     form['csrf_token'].data = request.cookies['csrf_token']
+    print(form.data)
     if form.validate_on_submit():
         new_pantry = Pantry(
             user_id = id,

@@ -14,7 +14,15 @@ const NewPantryForm = () => {
 
     const onSubmit = async(e) => {
         e.preventDefault();
-        const data = await dispatch(createOnePantry(loggedInUser?.id, pantryName, pantryImage, location))
+
+        const formInfo = {
+            user_id: loggedInUser?.id,
+            pantry_name: pantryName,
+            pantry_image_url: pantryImage,
+            location: location
+        }
+
+        const data = await dispatch(createOnePantry(formInfo))
         if (data) {
             if(data.errors){
                 let errs = Object.keys(data.errors)
