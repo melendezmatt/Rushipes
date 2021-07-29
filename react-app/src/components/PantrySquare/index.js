@@ -11,7 +11,7 @@ const PantrySquare = ({ pantry }) => {
         <div className='pantry-square'>
             <div className='pantry-image'>
                 <img
-                    style={{ width: "100px", height: "100px", objectFit: "cover", margin:'10px'}}
+                    style={{ width: "200px", height: "200px", objectFit: "cover", margin:'10px'}}
                     src={
                         pantry?.pantry_image_url === 'pantry_image_url.jpeg'
                             ? 'https://cdn.pixabay.com/photo/2017/03/22/17/39/kitchen-2165756_960_720.jpg'
@@ -19,19 +19,21 @@ const PantrySquare = ({ pantry }) => {
                         }
                 />
             </div>
-            <div className='pantry-info'>
-                <div className='pantryLink'>
-                    <NavLink to={`/users/${id}/pantry/${pantry.id}`}>
-                        {pantry.pantry_name}
-                    </NavLink>
+            <div className='pantry-content'>
+                <div className='pantry-info'>
+                    <div className='pantryLink'>
+                        <NavLink to={`/users/${id}/pantry/${pantry.id}`}>
+                            {pantry.pantry_name}
+                        </NavLink>
+                    </div>
+                    <div className='pantryLoc'>
+                        {pantry.location}
+                    </div>
                 </div>
-                <div className='pantryLoc'>
-                    {pantry.location}
+                <div className='pantry-buttons'>
+                    <EditPantryButton id={id} pantryId={pantry.id}/>
+                    <DeletePantryButton id={id} pantryId={pantry.id}/>
                 </div>
-            </div>
-            <div className='pantry-buttons'>
-                <EditPantryButton id={id} pantryId={pantry.id}/>
-                <DeletePantryButton id={id} pantryId={pantry.id}/>
             </div>
 
         </div>

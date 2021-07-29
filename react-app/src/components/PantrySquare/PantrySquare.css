@@ -1,4 +1,31 @@
-.pantry-info {
+.pantry-buttons {
+    display: flex;
+    flex-direction: row;
+    margin-top: 18%;
+}
+
+.pantry-square {
+    display: flex;
+    flex: row;
+    max-height: 450px;
+    max-width: 600px;
+    background-color: lightgray;
+    margin: 10px;
+}
+
+.pantry-info{
     display: flex;
     flex-direction: column;
+    margin-top: 100px;
+    margin-left: 5px;
+}
+
+.pantryLink a{
+    text-decoration: none;
+    color: black;
+    font-size: 30px;
+}
+
+.pantryLoc {
+    color: black;
 }
