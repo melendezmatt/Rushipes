@@ -6,7 +6,7 @@ const EditPantryButton = ({id, pantryId}) => {
         e.preventDefault()
         history.push(`/users/${id}/pantry/${pantryId}/edit-pantry`)
     }
-    return <button type="button" onClick={editPantry}> Edit Pantry </button>
+    return <button type="button" onClick={editPantry}> Edit </button>
 }
 
 export default EditPantryButton;

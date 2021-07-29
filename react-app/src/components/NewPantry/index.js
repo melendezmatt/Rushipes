@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom';
-import { createOnePantry } from '../../store/users'
+import { createOnePantry } from '../../store/pantries'
 
 const NewPantryForm = () => {
     const loggedInUser = useSelector(state => state.session.user);

@@ -53,7 +53,7 @@ def edit_single_pantry(id, pantryId):
     form = PantryForm()
     form['csrf_token'].data = request.cookies['csrf_token']
     if form.validate_on_submit():
-        old_pantry = Pantry.query.filter(Pantry.user_id == id, Pantry.id == pantryId).first()
+        old_pantry = Pantry.query.filter(Pantry.id == pantryId, Pantry.user_id == id).first()
         form.populate_obj(old_pantry)
         old_pantry.pantry_name = form.data['pantry_name']
         old_pantry.pantry_image_url = form.data['pantry_image_url']
@@ -66,7 +66,7 @@ def edit_single_pantry(id, pantryId):
 #Delete Single Pantry ['DELETE']
 @user_routes.route('/<int:id>/pantry/<int:pantryId>', methods=['DELETE'])
 def delete_single_pantry(id, pantryId):
-    pantry = Pantry.query.filter(Pantry.user_id == id and Pantry.id == pantryId).first()
+    pantry = Pantry.query.filter(Pantry.id == pantryId and Pantry.user_id == id).first()
     db.session.delete(pantry)
     db.session.commit()
     return pantry.to_dict()

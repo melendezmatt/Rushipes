@@ -29,8 +29,11 @@ const PantrySquare = ({ pantry }) => {
                     {pantry.location}
                 </div>
             </div>
-            <EditPantryButton id={id} pantryId={pantry.id}/>
-            <DeletePantryButton id={id} pantryId={pantry.id}/>
+            <div className='pantry-buttons'>
+                <EditPantryButton id={id} pantryId={pantry.id}/>
+                <DeletePantryButton id={id} pantryId={pantry.id}/>
+            </div>
+
         </div>
     )
 }

@@ -1,6 +1,6 @@
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
-import { removeOnePantry } from "../../store/users";
+import { removeOnePantry } from "../../store/pantries";
 
 
 const DeletePantryButton = ({id, pantryId}) => {
@@ -11,7 +11,7 @@ const DeletePantryButton = ({id, pantryId}) => {
         await dispatch(removeOnePantry(id, pantryId))
         history.push(`/users/${id}/pantries`)
     }
-    return <button type="button" onClick={deletePantry}> Delete Pantry </button>
+    return <button type="button" onClick={deletePantry}> Delete </button>
 }
 
 export default DeletePantryButton;

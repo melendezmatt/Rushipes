@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { getAllUserPantries} from '../../store/users';
+import { getAllUserPantries} from '../../store/pantries';
 import AllPantriesContainer from '../AllPantriesContainer';
 
 const AllPantries = () => {
@@ -21,7 +21,7 @@ const AllPantries = () => {
     const newPantry = async(e) => {
         history.push(`/users/${loggedInUser.id}/new-pantry`)
     }
-    
+
     return (
         <div className='outer-container'>
             <h1>{loggedInUser.username}'s Pantries</h1>

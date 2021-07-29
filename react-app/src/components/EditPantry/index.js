@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { useHistory, useParams  } from 'react-router-dom';
-import { getOnePantry, editOnePantry } from '../../store/users'
+import { getOnePantry, editOnePantry } from '../../store/pantries'
 
 const EditPantryForm = () => {
     const loggedInUser = useSelector(state => state.session.user);
     const id = loggedInUser?.id
-    const currPantry = useSelector(state => state.users.pantry)
+    const currPantry = useSelector(state => state.users.pantry) // something with this is incorrectly populating my edit
     const { pantryId } = useParams()
     const history = useHistory();
     const dispatch = useDispatch();
@@ -15,6 +15,8 @@ const EditPantryForm = () => {
     const [pantryImage, setPantryImage] = useState(currPantry?.pantry_image_url)
     const [location, setLocation] = useState(currPantry?.location)
 
+    console.log(id)
+    console.log(pantryId)
     useEffect(() => {
         dispatch(getOnePantry(id, pantryId))
     }, [dispatch, id, pantryId])
