@@ -1,6 +1,6 @@
-const GET_PANTRIES = 'users/GET_PANTRIES'
-const GET_SINGLE = 'users/GET_SINGLE'
-const REMOVE_SINGLE = 'users/REMOVE_SINGLE'
+const GET_PANTRIES = 'pantries/GET_PANTRIES'
+const GET_SINGLE = 'pantries/GET_SINGLE'
+const REMOVE_SINGLE = 'pantries/REMOVE_SINGLE'
 
 const setPantries = (pantries) => ({
     type: GET_PANTRIES,
@@ -65,6 +65,7 @@ export const editOnePantry = (payload, pantryId) => async (dispatch) => {
 };
 
 export const removeOnePantry = (id, pantryId) => async (dispatch) => {
+    console.log(id, pantryId)
     const res = await fetch(`/api/users/${id}/pantry/${pantryId}`, {
         method: 'DELETE'
     });
@@ -96,8 +97,9 @@ const pantriesReducer = (state = initialState, action) => {
                 [action.pantry.id] : action.pantry
             }
         case REMOVE_SINGLE:
+            console.log(action.pantry)
             const newState = { ...state };
-            delete newState[action.pantry];
+            delete newState[action.pantry.id];
             return newState;
         default:
             return state

@@ -40,7 +40,8 @@ def post_single_pantry(id):
             user_id = id,
             pantry_name = form.data['pantry_name'],
             pantry_image_url = form.data['pantry_image_url'],
-            location = form.data['location']
+            location = form.data['location'],
+            about = form.data['about']
         )
         db.session.add(new_pantry)
         db.session.commit()
@@ -57,7 +58,8 @@ def edit_single_pantry(id, pantryId):
         form.populate_obj(old_pantry)
         old_pantry.pantry_name = form.data['pantry_name']
         old_pantry.pantry_image_url = form.data['pantry_image_url']
-        old_pantry.location = form.data['location']
+        old_pantry.location = form.data['location'],
+        old_pantry.about = form.data['about']
         db.session.commit()
         return old_pantry.to_dict()
     return {"errors": form.errors}

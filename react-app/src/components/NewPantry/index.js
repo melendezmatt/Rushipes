@@ -11,6 +11,7 @@ const NewPantryForm = () => {
     const [pantryName, setPantryName] = useState('')
     const [pantryImage, setPantryImage] = useState('')
     const [location, setLocation] = useState('')
+    const [about, setAbout] = useState('')
 
     const onSubmit = async(e) => {
         e.preventDefault();
@@ -19,7 +20,8 @@ const NewPantryForm = () => {
             user_id: loggedInUser?.id,
             pantry_name: pantryName,
             pantry_image_url: pantryImage,
-            location: location
+            location: location,
+            about: about
         }
 
         const data = await dispatch(createOnePantry(formInfo))
@@ -46,6 +48,10 @@ const NewPantryForm = () => {
     setLocation(e.target.value);
     };
 
+    const updateAbout = (e) => {
+    setAbout(e.target.value);
+    };
+
     return (
         <form onSubmit={onSubmit}>
             <div className="form-errors">
@@ -69,14 +75,14 @@ const NewPantryForm = () => {
         </div>
         <div className="form-question">
             <div className="form-question-label">
-                <label>Pantry Image</label>
+                <label>About</label>
             </div>
             <div className="form-input">
                 <input
                 type='text'
-                name='pantryImage'
-                onChange={updatePantryImage}
-                value={pantryImage}
+                name='about'
+                onChange={updateAbout}
+                value={about}
                 required={true}
                 ></input>
             </div>
@@ -91,6 +97,20 @@ const NewPantryForm = () => {
                 name='location'
                 onChange={updateLocation}
                 value={location}
+                required={true}
+                ></input>
+            </div>
+        </div>
+        <div className="form-question">
+            <div className="form-question-label">
+                <label>Pantry Image</label>
+            </div>
+            <div className="form-input">
+                <input
+                type='text'
+                name='pantryImage'
+                onChange={updatePantryImage}
+                value={pantryImage}
                 required={true}
                 ></input>
             </div>

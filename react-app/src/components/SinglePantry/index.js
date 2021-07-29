@@ -21,6 +21,7 @@ const SinglePantry = () => {
         <div>
             <h1> {currPantry?.pantry_name}</h1>
             <h2> {currPantry?.location}</h2>
+            <h3> {currPantry?.about}</h3>
         </div>
 
     )

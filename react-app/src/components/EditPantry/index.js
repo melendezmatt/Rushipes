@@ -16,6 +16,7 @@ const EditPantryForm = () => {
     const [pantryName, setPantryName] = useState(currPantry?.pantry_name)
     const [pantryImage, setPantryImage] = useState(currPantry?.pantry_image_url)
     const [location, setLocation] = useState(currPantry?.location)
+    const [about, setAbout] = useState(currPantry?.about)
 
     console.log(id)
     console.log(pantryId)
@@ -30,7 +31,8 @@ const EditPantryForm = () => {
             user_id: id,
             pantry_name: pantryName,
             pantry_image_url: pantryImage,
-            location: location
+            location: location,
+            about: about
         }
 
         const data = await dispatch(editOnePantry(formInfo, pantryId))
@@ -61,6 +63,10 @@ const EditPantryForm = () => {
     setLocation(e.target.value);
     };
 
+    const updateAbout = (e) => {
+        setAbout(e.target.value);
+    };
+
     return (
         <form onSubmit={onSubmit}>
             <div className="form-errors">
@@ -78,6 +84,34 @@ const EditPantryForm = () => {
                 name='pantryName'
                 onChange={updatePantryName}
                 value={pantryName}
+                required={true}
+                ></input>
+            </div>
+        </div>
+        <div className="form-question">
+            <div className="form-question-label">
+                <label>About</label>
+            </div>
+            <div className="form-input">
+                <input
+                type='text-area'
+                name='about'
+                onChange={updateAbout}
+                value={about}
+                required={true}
+                ></input>
+            </div>
+        </div>
+        <div className="form-question">
+            <div className="form-question-label">
+                <label>Location</label>
+            </div>
+            <div className="form-input">
+                <input
+                type='text'
+                name='location'
+                onChange={updateLocation}
+                value={location}
                 required={true}
                 ></input>
             </div>
