@@ -1,20 +1,21 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { getOnePantry } from '../../store/pantries';
+import { getAllUserPantries, getOnePantry } from '../../store/pantries';
 
 const SinglePantry = () => {
     const loggedInUser = useSelector(state => state.session.user)
     const id = loggedInUser?.id
     const dispatch = useDispatch()
     const { pantryId } = useParams()
+    console.log(pantryId)
     const currPantry = useSelector((state) => {
-        return state.users.pantry
+        return state.pantries[pantryId]
     })
 
     useEffect(() => {
-        dispatch(getOnePantry(id, pantryId))
-    }, [dispatch, id, pantryId])
+        dispatch(getAllUserPantries(id))
+    }, [dispatch, id])
 
     return (
         <div>

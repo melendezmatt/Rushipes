@@ -11,7 +11,7 @@ const AllPantries = () => {
     const dispatch = useDispatch();
 
     const currPantries = useSelector((state) => {
-        return state.users.pantries
+        return state.pantries
     })
 
     useEffect(() => {
@@ -26,7 +26,7 @@ const AllPantries = () => {
         <div className='outer-container'>
             <h1>{loggedInUser.username}'s Pantries</h1>
             <button onClick={newPantry}> Add Pantry</button>
-            <AllPantriesContainer allPantries={currPantries?.pantries}/>
+            <AllPantriesContainer allPantries={Object.values(currPantries)}/>
         </div>
 
     )

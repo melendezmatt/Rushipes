@@ -81,14 +81,19 @@ const initialState = {}
 const pantriesReducer = (state = initialState, action) => {
     switch (action.type) {
         case GET_PANTRIES:
+            const allPantries = {};
+            action.pantries.pantries.forEach((pantry) => {
+                allPantries[pantry.id] = pantry;
+            }
+            );
             return {
                 ...state,
-                pantries: action.pantries
+                ...allPantries
             }
         case GET_SINGLE:
             return {
                 ...state,
-                pantry: action.pantry
+                [action.pantry.id] : action.pantry
             }
         case REMOVE_SINGLE:
             const newState = { ...state };

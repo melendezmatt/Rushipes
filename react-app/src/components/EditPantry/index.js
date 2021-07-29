@@ -1,13 +1,15 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { useHistory, useParams  } from 'react-router-dom';
-import { getOnePantry, editOnePantry } from '../../store/pantries'
+import { getAllUserPantries, editOnePantry } from '../../store/pantries'
 
 const EditPantryForm = () => {
     const loggedInUser = useSelector(state => state.session.user);
     const id = loggedInUser?.id
-    const currPantry = useSelector(state => state.users.pantry) // something with this is incorrectly populating my edit
     const { pantryId } = useParams()
+    const currPantry = useSelector((state) => {
+        return state.pantries[pantryId]
+    })
     const history = useHistory();
     const dispatch = useDispatch();
     const [errors, setErrors] = useState([]);
@@ -18,8 +20,8 @@ const EditPantryForm = () => {
     console.log(id)
     console.log(pantryId)
     useEffect(() => {
-        dispatch(getOnePantry(id, pantryId))
-    }, [dispatch, id, pantryId])
+        dispatch(getAllUserPantries(id))
+    }, [dispatch, id])
 
     const onSubmit = async(e) => {
         e.preventDefault();
