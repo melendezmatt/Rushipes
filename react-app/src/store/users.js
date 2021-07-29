@@ -66,10 +66,17 @@ export const getOnePantry = (id, pantryId) => async (dispatch) => {
     }
 };
 
-export const createOnePantry = (id, payload) => async (dispatch) => {
-    const res = await fetch(`/api/users/${id}/pantries/${payload.id}`, {
+export const createOnePantry = (id, pantryName, pantryImage, location) => async (dispatch) => {
+    console.log('asssssssssssssssshhhhhhhhhhhhhhhhhhhhhhhhkjjjjjjjjjjjjjjj')
+    console.log(id, pantryName, pantryImage, location)
+    const res = await fetch(`/api/users/${id}/new-pantry`, {
         method: 'POST',
-        body: JSON.stringify(payload)
+        body: JSON.stringify({
+            "user_id": id,
+            "pantry_name": pantryName,
+            "pantry_image_url": pantryImage,
+            "location": location
+        })
     });
 
     if (res.ok) {

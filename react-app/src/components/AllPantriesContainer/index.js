@@ -1,17 +1,12 @@
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { NavLink } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import PantrySquare from '../PantrySquare'
 const AllPantriesContainer = ({allPantries}) => {
     const loggedInUser = useSelector(state => state.session.user)
 
     return (
         <div>
-            {allPantries.map(pantry => (
-                <div>
-                    <NavLink to={`/users/${loggedInUser.id}/pantry/${pantry?.id}`}>
-                            <p>{pantry?.pantry_name}</p>
-                        </NavLink>
-                </div>
+            {allPantries?.map(pantry => (
+                <PantrySquare pantry={pantry} key={pantry.id}/>
             ))}
         </div>
     )

@@ -19,7 +19,7 @@ nav {
     width: 100%;
     font-size: 16px;
     margin-top: 0;
-    background-color: #020202;
+    background-color: #e7e0e0;
 }
 
 .navbar{
@@ -80,7 +80,7 @@ nav {
     height: 2px;
     bottom: 0;
     left: 0;
-    background-color: #ED254E;
+    background-color: #da8d00;
     transform: scaleX(0);
     transition: transform 0.3s ease;
 }
@@ -92,30 +92,30 @@ nav {
   .navbar__button button {
     outline: none;
     display: block;
-    border: solid 1px #ED254E;
-    color: #ED254E;
+    border: solid 1px #da8d00;
+    color: #da8d00;;
     font-size: 1rem;
     font-weight: 500;
     line-height: 1;
     border-radius: 30px;
-    background: #020202;
+    background: #e7e0e0;
     cursor: pointer;
     transition: all 0.3s linear;
     margin: 5px;
   }
 
   .navbar__button button:focus {
-    background-color: #ED254E;
-    color: #020202;
+    background-color: #da8d00;
+    color: #e7e0e0;
   }
 
   .navbar__button button:active {
-    background: #020202;
-    color: #ED254E;
-    border: solid 1px #ED254E;
+    background: #e7e0e0;
+    color: #da8d00;
+    border: solid 1px #da8d00;
   }
 
   .navbar__button button:hover {
-    background-color: #ED254E;
-    color: #020202;
+    background-color: #da8d00;
+    color: #e7e0e0;
   }

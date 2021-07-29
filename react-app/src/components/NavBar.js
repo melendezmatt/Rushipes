@@ -3,40 +3,55 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
+import DemoUserButton from './auth/DemoUserButton';
 
 const NavBar = () => {
   const loggedInUser = useSelector(state => state.session.user)
-  const userName = loggedInUser?.username
-  return (
-    <nav>
-      <ul>
-        <li>
-          Hello, {userName}!
-        </li>
-        <li>
+
+  let navContent;
+  if (loggedInUser) {
+    navContent = (
+      <ul className='navbar'>
+        <li className='navbar__link'>
           <NavLink to='/' exact={true} activeClassName='active'>
             Home
           </NavLink>
         </li>
-        <li>
+        <li className='navbar__link'>
+          <NavLink to={`/users/${loggedInUser?.id}/pantries`} exact={true} activeClassName='active'>
+            Pantries
+          </NavLink>
+        </li>
+        <li className="navbar__button">
+          <LogoutButton />
+        </li>
+      </ul>)
+  } else {
+    navContent = (
+      <ul className='navbar'>
+        <li className='navbar__link'>
+          <NavLink to='/' exact={true} activeClassName='active'>
+            Home
+          </NavLink>
+        </li>
+        <li className='navbar__link'>
           <NavLink to='/login' exact={true} activeClassName='active'>
             Login
           </NavLink>
         </li>
-        <li>
+        <li className='navbar__link'>
           <NavLink to='/sign-up' exact={true} activeClassName='active'>
             Sign Up
           </NavLink>
         </li>
-        <li>
-          <NavLink to='/users' exact={true} activeClassName='active'>
-            Users
-          </NavLink>
+        <li className="navbar__button">
+          <DemoUserButton />
         </li>
-        <li>
-          <LogoutButton />
-        </li>
-      </ul>
+      </ul>)
+  }
+  return (
+    <nav>
+      {navContent}
     </nav>
   );
 }

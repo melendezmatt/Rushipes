@@ -7,7 +7,9 @@ import NavBar from './components/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
 import UsersList from './components/UsersList';
 import User from './components/User';
-import AllPantries from './components/AllPantries'
+import AllPantries from './components/AllPantries';
+import SinglePantry from './components/SinglePantry';
+import NewPantryForm from './components/NewPantry';
 import { authenticate } from './store/session';
 
 function App() {
@@ -35,17 +37,23 @@ function App() {
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
         </Route>
-        <ProtectedRoute path='/users' exact={true} >
+        <ProtectedRoute path='/users' exact={true}>
           <UsersList/>
         </ProtectedRoute>
-        <ProtectedRoute path='/users/:userId' exact={true} >
+        <ProtectedRoute path='/users/:userId' exact={true}>
           <User />
         </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >
           <h1>My Home Page</h1>
         </ProtectedRoute>
-        <ProtectedRoute path='/users/:userId/pantries' exact={true} >
+        <ProtectedRoute path='/users/:userId/pantries' exact={true}>
           <AllPantries />
+        </ProtectedRoute>
+        <ProtectedRoute path='/users/:userId/pantry/:pantryId' exact={true}>
+          <SinglePantry />
+        </ProtectedRoute>
+        <ProtectedRoute path='/users/:userId/new-pantry' exact={true}>
+          <NewPantryForm />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>

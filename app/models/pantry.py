@@ -17,5 +17,6 @@ class Pantry(db.Model):
             'id': self.id,
             'pantry_name': self.pantry_name,
             'pantry_image_url': self.pantry_image_url,
-            'user_id': self.user_id
+            'user_id': self.user_id,
+            'location':self.location
         }
