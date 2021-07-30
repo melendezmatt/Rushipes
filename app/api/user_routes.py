@@ -1,7 +1,7 @@
 from flask import Blueprint, request
 from flask_login import login_required
 from app.models import User, Pantry, db, Recipe
-from app.forms import PantryForm
+from app.forms import PantryForm, RecipeForm
 
 user_routes = Blueprint('users', __name__)
 
@@ -83,4 +83,34 @@ def get_all_recipes(id):
 @user_routes.route('/<int:id>/recipe/<int:recipeId>', methods=['GET'])
 def get_single_recipe(id, recipeId):
     recipe = Recipe.query.filter(Recipe.user_id == id, Recipe.id == recipeId).first()
+    return recipe.to_dict()
+
+#Create Single Recipe ['POST']
+@user_routes.route('/<int:id>/new-recipe', methods=['POST'])
+def post_single_recipe(id):
+    form = RecipeForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        new_recipe = Recipe(
+            user_id = id,
+            recipe_name = form.data['recipe_name'],
+            recipe_image_url = form.data['recipe_image_url'],
+            about = form.data['about'],
+            type = request.json['type'],
+            instructions =  form.data['instructions'],
+            cook_time = request.json['cook_time'],
+            prep_time = request.json['prep_time'],
+            servings = request.json['servings'],
+        )
+        db.session.add(new_recipe)
+        db.session.commit()
+        return new_recipe.to_dict()
+    return {"errors": form.errors}
+
+#Delete Single Recipe ['DELETE']
+@user_routes.route('/<int:id>/recipe/<int:recipeId>', methods=['DELETE'])
+def delete_single_recipe(id, recipeId):
+    recipe = Recipe.query.filter(Recipe.id == recipeId and Recipe.user_id == id).first()
+    db.session.delete(recipe)
+    db.session.commit()
     return recipe.to_dict()

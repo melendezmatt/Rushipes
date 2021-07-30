@@ -27,7 +27,7 @@ export const getAllUserPantries = (id) => async (dispatch) => {
 }
 
 export const getOnePantry = (id, pantryId) => async (dispatch) => {
-    const res = await fetch(`/api/users/${id}/pantries/${pantryId}`);
+    const res = await fetch(`/api/users/${id}/pantry/${pantryId}`);
 
     if (res.ok) {
       const pantry = await res.json();

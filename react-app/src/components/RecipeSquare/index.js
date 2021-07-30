@@ -1,5 +1,7 @@
 import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
+import DeleteRecipeButton from '../DeleteRecipeButton';
+import EditRecipeButton from '../EditRecipeButton';
 import './RecipeSquare.css';
 
 const RecipeSquare = ({ recipe }) => {
@@ -31,6 +33,8 @@ const RecipeSquare = ({ recipe }) => {
                         Total Time: {recipe.prep_time + recipe.cook_time} mins
                     </div>
                 </div>
+                <EditRecipeButton id={id} recipeId={recipe.id}/>
+                <DeleteRecipeButton id={id} recipeId={recipe.id}/>
             </div>
         </div>
     )

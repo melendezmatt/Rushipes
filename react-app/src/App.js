@@ -13,6 +13,8 @@ import NewPantryForm from './components/NewPantry';
 import EditPantryForm from './components/EditPantry';
 import { authenticate } from './store/session';
 import AllRecipes from './components/AllRecipes';
+import NewRecipeForm from './components/NewRecipe';
+import EditRecipeForm from './components/EditRecipeForm';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -76,11 +78,11 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/users/:userId/new-recipe' exact={true}>
           <NavBar />
-          <NewPantryForm /> // FIX
+          <NewRecipeForm />
         </ProtectedRoute>
         <ProtectedRoute path='/users/:userId/recipe/:recipeId/edit-recipe' exact={true}>
           <NavBar />
-          <EditPantryForm /> // FIX
+          <EditRecipeForm />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>

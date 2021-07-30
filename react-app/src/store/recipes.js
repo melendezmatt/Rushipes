@@ -27,7 +27,7 @@ export const getAllUserRecipes = (id) => async (dispatch) => {
 }
 
 export const getOneRecipe = (id, recipeId) => async (dispatch) => {
-    const res = await fetch(`/api/users/${id}/recipes/${recipeId}`);
+    const res = await fetch(`/api/users/${id}/recipe/${recipeId}`);
 
     if (res.ok) {
       const recipe = await res.json();
