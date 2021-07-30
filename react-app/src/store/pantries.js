@@ -27,7 +27,7 @@ export const getAllUserPantries = (id) => async (dispatch) => {
 }
 
 export const getOnePantry = (id, pantryId) => async (dispatch) => {
-    const res = await fetch(`/api/users/${id}/pantries/${pantryId}`);
+    const res = await fetch(`/api/users/${id}/pantry/${pantryId}`);
 
     if (res.ok) {
       const pantry = await res.json();
@@ -97,7 +97,6 @@ const pantriesReducer = (state = initialState, action) => {
                 [action.pantry.id] : action.pantry
             }
         case REMOVE_SINGLE:
-            console.log(action.pantry)
             const newState = { ...state };
             delete newState[action.pantry.id];
             return newState;

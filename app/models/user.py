@@ -16,6 +16,11 @@ class User(db.Model, UserMixin):
         back_populates="user"
     )
 
+    recipe = db.relationship(
+        "Recipe",  uselist=False,
+        back_populates="user"
+    )
+
     @property
     def password(self):
         return self.hashed_password

@@ -22,6 +22,11 @@ const NavBar = () => {
             Pantries
           </NavLink>
         </li>
+        <li className='navbar__link'>
+          <NavLink to={`/users/${loggedInUser?.id}/recipes`} exact={true} activeClassName='active'>
+            Recipes
+          </NavLink>
+        </li>
         <li className="navbar__button">
           <LogoutButton />
         </li>

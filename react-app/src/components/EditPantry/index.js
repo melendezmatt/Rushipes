@@ -130,20 +130,6 @@ const EditPantryForm = () => {
                 ></input>
             </div>
         </div>
-        <div className="form-question">
-            <div className="form-question-label">
-                <label>Location</label>
-            </div>
-            <div className="form-input">
-                <input
-                type='text'
-                name='location'
-                onChange={updateLocation}
-                value={location}
-                required={true}
-                ></input>
-            </div>
-        </div>
         <button type='submit'> Edit Pantry!</button>
         <button type='click' onClick={handleCancel}> Cancel </button>
         </form>
