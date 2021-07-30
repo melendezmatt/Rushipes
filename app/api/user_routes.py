@@ -107,6 +107,26 @@ def post_single_recipe(id):
         return new_recipe.to_dict()
     return {"errors": form.errors}
 
+@user_routes.route('/<int:id>/recipe/<int:recipeId>', methods=['PUT'])
+def edit_single_recipe(id, recipeId):
+    form = RecipeForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        old_recipe = Recipe.query.filter(Recipe.id ==  recipeId, Recipe.user_id == id).first()
+        form.populate_obj(old_recipe)
+        old_recipe.recipe_name = form.data['recipe_name']
+        old_recipe.recipe_image_url = form.data['recipe_image_url']
+        old_recipe.about = form.data['about']
+        old_recipe.type = request.json['type']
+        old_recipe.instructions =  form.data['instructions']
+        old_recipe.cook_time = request.json['cook_time']
+        old_recipe.prep_time = request.json['prep_time']
+        old_recipe.servings = request.json['servings']
+        db.session.commit()
+        return old_recipe.to_dict()
+    return {"errors": form.errors}
+
+
 #Delete Single Recipe ['DELETE']
 @user_routes.route('/<int:id>/recipe/<int:recipeId>', methods=['DELETE'])
 def delete_single_recipe(id, recipeId):

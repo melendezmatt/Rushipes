@@ -15,7 +15,7 @@ import { authenticate } from './store/session';
 import AllRecipes from './components/AllRecipes';
 import NewRecipeForm from './components/NewRecipe';
 import EditRecipeForm from './components/EditRecipeForm';
-
+import SingleRecipe from './components/SingleRecipe';
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
@@ -74,7 +74,7 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/users/:userId/recipe/:recipeId' exact={true}>
           <NavBar />
-          <SinglePantry /> // FIX
+          <SingleRecipe />
         </ProtectedRoute>
         <ProtectedRoute path='/users/:userId/new-recipe' exact={true}>
           <NavBar />

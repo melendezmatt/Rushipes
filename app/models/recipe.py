@@ -27,5 +27,6 @@ class Recipe(db.Model):
             'prep_time': self.prep_time,
             'cook_time': self.cook_time,
             'servings': self.servings,
-            'instructions':self.instructions
+            'instructions':self.instructions,
+            'type':self.type
         }

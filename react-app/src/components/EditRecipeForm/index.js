@@ -10,6 +10,8 @@ const EditRecipeForm = () => {
     const currRecipe = useSelector((state) => {
         return state.recipes[recipeId]
     })
+
+
     const history = useHistory();
     const dispatch = useDispatch();
     const [errors, setErrors] = useState([]);
@@ -20,7 +22,7 @@ const EditRecipeForm = () => {
     const [cookTime, setCookTime] = useState(currRecipe?.cook_time)
     const [prepTime, setPrepTime] = useState(currRecipe?.prep_time)
     const [servings, setServings] = useState(currRecipe?.servings)
-    const [type, setType] = useState(currRecipe?.type)
+    const [type, setType] = useState(Number(currRecipe?.type))
 
     const onSubmit = async(e) => {
         e.preventDefault();
@@ -37,7 +39,7 @@ const EditRecipeForm = () => {
             type: type
         }
 
-        const data = await dispatch(editOneRecipe(formInfo))
+        const data = await dispatch(editOneRecipe(formInfo, recipeId))
         if (data) {
             if(data.errors){
                 let errs = Object.keys(data.errors)
@@ -77,8 +79,13 @@ const EditRecipeForm = () => {
     };
 
     const updateType = (e) => {
-        setType(e.target.value);
+        setType(Number(e.target.value));
     };
+
+    const handleCancel = (e) => {
+        e.preventDefault()
+        history.push(`/users/${id}/recipes`)
+    }
 
     return (
         <form onSubmit={onSubmit}>
@@ -152,6 +159,7 @@ const EditRecipeForm = () => {
                 onChange={updatePrepTime}
                 value={prepTime}
                 required={true}
+                min='5'
                 ></input>
             </div>
         </div>
@@ -166,6 +174,7 @@ const EditRecipeForm = () => {
                 onChange={updateCookTime}
                 value={cookTime}
                 required={true}
+                min='5'
                 ></input>
             </div>
         </div>
@@ -180,6 +189,7 @@ const EditRecipeForm = () => {
                 onChange={updateServings}
                 value={servings}
                 required={true}
+                min='1'
                 ></input>
             </div>
         </div>
@@ -187,21 +197,29 @@ const EditRecipeForm = () => {
             <div className="form-question-label">
                 <label>Type</label>
             </div>
-            <div className="form-input">
-                <select
-                type='integer'
-                name='select'
-                onChange={updateType}
-                value={type}
-                required={true}
-                >
-                <option value='0'>Meal</option>
-                <option value='1'> Snack</option>
-                <option value='2'>Dessert</option>
-                </select>
-            </div>
+            <div>
+                <label htmlFor='meal'>Meal</label>
+                <input type='radio'
+                    id='meal'
+                    onChange={updateType}
+                    checked={type === 1 ? true : false}
+                    value="1" ></input>
+                <label htmlFor='snack' >Snack</label>
+                <input type='radio'
+                    onChange={updateType}
+                    checked={type === 2 ? true : false}
+                    id='snack'
+                    value="2" ></input>
+                <label htmlFor='dessert'>Dessert</label>
+                <input type='radio'
+                    onChange={updateType}
+                    id='dessert'
+                    checked={type === 3 ? true : false}
+                    value="3"></input>
+            </div >
         </div>
         <button type='submit'> Edit Recipe!</button>
+        <button type='click' onClick={handleCancel}> Cancel </button>
         </form>
     )
 }

@@ -12,10 +12,10 @@ const NewRecipeForm = () => {
     const [recipeImage, setRecipeImage] = useState('')
     const [about, setAbout] = useState('')
     const [instructions, setInstructions] = useState('')
-    const [cookTime, setCookTime] = useState(0)
-    const [prepTime, setPrepTime] = useState(0)
-    const [servings, setServings] = useState(0)
-    const [type, setType] = useState(0)
+    const [cookTime, setCookTime] = useState(5)
+    const [prepTime, setPrepTime] = useState(5)
+    const [servings, setServings] = useState(1)
+    const [type, setType] = useState(1)
 
     const onSubmit = async(e) => {
         e.preventDefault();
@@ -147,6 +147,7 @@ const NewRecipeForm = () => {
                 onChange={updatePrepTime}
                 value={prepTime}
                 required={true}
+                min='5'
                 ></input>
             </div>
         </div>
@@ -161,6 +162,7 @@ const NewRecipeForm = () => {
                 onChange={updateCookTime}
                 value={cookTime}
                 required={true}
+                min='5'
                 ></input>
             </div>
         </div>
@@ -175,6 +177,7 @@ const NewRecipeForm = () => {
                 onChange={updateServings}
                 value={servings}
                 required={true}
+                min='1'
                 ></input>
             </div>
         </div>
@@ -182,19 +185,26 @@ const NewRecipeForm = () => {
             <div className="form-question-label">
                 <label>Type</label>
             </div>
-            <div className="form-input">
-                <select
-                type='integer'
-                name='select'
-                onChange={updateType}
-                value={type}
-                required={true}
-                >
-                <option value='0'>Meal</option>
-                <option value='1'> Snack</option>
-                <option value='2'>Dessert</option>
-                </select>
-            </div>
+            <div>
+                <label htmlFor='meal'>Meal</label>
+                <input type='radio'
+                    id='meal'
+                    onChange={updateType}
+                    checked={type === 1 || "1" ? true : false}
+                    value="1" ></input>
+                <label htmlFor='snack' >Snack</label>
+                <input type='radio'
+                    onChange={updateType}
+                    checked={type === 2 || "2" ? true : false}
+                    id='snack'
+                    value="2" ></input>
+                <label htmlFor='dessert'>Dessert</label>
+                <input type='radio'
+                    onChange={updateType}
+                    id='dessert'
+                    checked={type === 3 || "3" ? true : false}
+                    value="3"></input>
+            </div >
         </div>
         <button type='submit'> New Recipe!</button>
         </form>

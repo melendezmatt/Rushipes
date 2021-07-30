@@ -10,4 +10,4 @@ class RecipeForm(FlaskForm):
     servings=IntegerField('cook_time', validators=[DataRequired()])
     about=StringField('about', validators=[DataRequired()])
     instructions=StringField('instructions', validators=[DataRequired()])
-    type=IntegerField('about', validators=[DataRequired()])
+    type=IntegerField('type', validators=[DataRequired()])
