@@ -1,10 +1,10 @@
-.pantry-buttons {
+.recipe-buttons {
     display: flex;
     flex-direction: row;
     margin-top: 35px;
 }
 
-.pantry-square {
+.recipe-square {
     display: flex;
     flex: row;
     max-height: 450px;
@@ -13,19 +13,15 @@
     margin: 10px;
 }
 
-.pantry-info{
+.recipe-info{
     display: flex;
     flex-direction: column;
     margin-top: 100px;
     margin-left: 5px;
 }
 
-.pantryLink a{
+.recipeLink a{
     text-decoration: none;
     color: black;
     font-size: 30px;
-}
-
-.pantryLoc {
-    color: black;
 }

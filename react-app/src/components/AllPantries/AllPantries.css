@@ -5,6 +5,10 @@
     align-items: center;
 }
 
+.outer-title {
+    background-color: lightgray;
+}
+
 .add-button {
     display: flex;
     flex-direction: column;
