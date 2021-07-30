@@ -1,6 +1,6 @@
 from flask import Blueprint, request
 from flask_login import login_required
-from app.models import User, Pantry, db
+from app.models import User, Pantry, db, Recipe
 from app.forms import PantryForm
 
 user_routes = Blueprint('users', __name__)
@@ -25,7 +25,7 @@ def get_all_pantries(id):
     return { 'pantries': [pantry.to_dict() for pantry in pantries]}
 
 #Get Single Pantry ['GET']
-@user_routes.route('/<int:id>/pantries/<int:pantryId>', methods=['GET'])
+@user_routes.route('/<int:id>/pantry/<int:pantryId>', methods=['GET'])
 def get_single_pantry(id, pantryId):
     pantry = Pantry.query.filter(Pantry.user_id == id, Pantry.id == pantryId).first()
     return pantry.to_dict()
@@ -72,3 +72,15 @@ def delete_single_pantry(id, pantryId):
     db.session.delete(pantry)
     db.session.commit()
     return pantry.to_dict()
+
+#Get All Recipes ['GET']
+@user_routes.route('/<int:id>/all-recipes', methods=['GET'])
+def get_all_recipes(id):
+    recipes = Recipe.query.filter(Recipe.user_id == id).all()
+    return { 'recipes': [recipe.to_dict() for recipe in recipes]}
+
+#Get Single Recipe ['GET']
+@user_routes.route('/<int:id>/recipe/<int:recipeId>', methods=['GET'])
+def get_single_recipe(id, recipeId):
+    recipe = Recipe.query.filter(Recipe.user_id == id, Recipe.id == recipeId).first()
+    return recipe.to_dict()

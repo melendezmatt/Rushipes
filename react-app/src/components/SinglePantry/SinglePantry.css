@@ -3,4 +3,32 @@
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    background-color: lightgray;
+    margin-top: 25px;
+    width: 50%;
+    margin-left: 25%;
+}
+
+.single-inner {
+    display: flex;
+    flex-direction: row;
+}
+
+.single-info {
+    background-color: burlywood;
+    margin-top: 10px;
+    padding: 10px;
+    height: 250px;
+    width: 400px;
+    padding-left: 50px;
+}
+
+.single-buttons {
+    display: flex;
+    flex-direction: row;
+    margin-top: 70px;
+}
+
+.single-buttons button {
+    background-color: burlywood;
 }

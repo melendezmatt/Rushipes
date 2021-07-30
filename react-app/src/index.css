@@ -13,6 +13,106 @@ body {
     height: 100vh;
 }
 
+.sign-up-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    background-color: rgb(214, 214, 204);
+}
+
+.sign-up-inner {
+    padding: 20px;
+}
+
+.sign-up-inner label, input {
+    display: inline-block;
+}
+
+.sign-up-buttons {
+    display: flex;
+    flex-direction: row;
+}
+
+.sign-up-buttons button {
+    outline: none;
+    display: block;
+    border: solid 1px #664a16;
+    color: #664a16;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1;
+    border-radius: 30px;
+    background: rgb(214, 214, 204);
+    cursor: pointer;
+    transition: all 0.3s linear;
+    margin: 5px;
+}
+
+.sign-up-buttons button:focus {
+    background-color: #664a16;
+    color: rgb(214, 214, 204);
+}
+.sign-up-buttons button:active {
+    background: rgb(214, 214, 204);
+    color: #664a16;
+    border: solid 1px #664a16;
+}
+
+.sign-up-buttons button:hover {
+    background-color: #664a16;
+    color: rgb(214, 214, 204);
+}
+
+.log-in-container {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    background-color: rgb(214, 214, 204);
+}
+
+.log-in-inner {
+    padding: 20px;
+}
+
+.log-in-inner label, input {
+    display: inline-block;
+}
+
+.log-in-buttons {
+    display: flex;
+    flex-direction: row;
+}
+
+.log-in-buttons button {
+    outline: none;
+    display: block;
+    border: solid 1px #664a16;
+    color: #664a16;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1;
+    border-radius: 30px;
+    background: rgb(214, 214, 204);
+    cursor: pointer;
+    transition: all 0.3s linear;
+    margin: 5px;
+}
+
+.log-in-buttons button:focus {
+    background-color: #664a16;
+    color: rgb(214, 214, 204);
+}
+.log-in-buttons button:active {
+    background: rgb(214, 214, 204);
+    color: #664a16;
+    border: solid 1px #664a16;
+}
+
+.log-in-buttons button:hover {
+    background-color: #664a16;
+    color: rgb(214, 214, 204);
+}
+
 /* Navbar */
 
 nav {

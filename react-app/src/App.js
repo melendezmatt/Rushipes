@@ -12,6 +12,7 @@ import SinglePantry from './components/SinglePantry';
 import NewPantryForm from './components/NewPantry';
 import EditPantryForm from './components/EditPantry';
 import { authenticate } from './store/session';
+import AllRecipes from './components/AllRecipes';
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -30,7 +31,6 @@ function App() {
 
   return (
     <BrowserRouter>
-      <NavBar />
       <Switch>
         <Route path='/login' exact={true}>
           <LoginForm />
@@ -39,25 +39,48 @@ function App() {
           <SignUpForm />
         </Route>
         <ProtectedRoute path='/users' exact={true}>
+          <NavBar />
           <UsersList/>
         </ProtectedRoute>
         <ProtectedRoute path='/users/:userId' exact={true}>
+          <NavBar />
           <User />
         </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >
+          <NavBar />
           <h1>My Home Page</h1>
         </ProtectedRoute>
         <ProtectedRoute path='/users/:userId/pantries' exact={true}>
+          <NavBar />
           <AllPantries />
         </ProtectedRoute>
         <ProtectedRoute path='/users/:userId/pantry/:pantryId' exact={true}>
+          <NavBar />
           <SinglePantry />
         </ProtectedRoute>
         <ProtectedRoute path='/users/:userId/new-pantry' exact={true}>
+          <NavBar />
           <NewPantryForm />
         </ProtectedRoute>
         <ProtectedRoute path='/users/:userId/pantry/:pantryId/edit-pantry' exact={true}>
+          <NavBar />
           <EditPantryForm />
+        </ProtectedRoute>
+        <ProtectedRoute path='/users/:userId/recipes' exact={true}>
+          <NavBar />
+          <AllRecipes />
+        </ProtectedRoute>
+        <ProtectedRoute path='/users/:userId/recipe/:recipeId' exact={true}>
+          <NavBar />
+          <SinglePantry /> // FIX
+        </ProtectedRoute>
+        <ProtectedRoute path='/users/:userId/new-recipe' exact={true}>
+          <NavBar />
+          <NewPantryForm /> // FIX
+        </ProtectedRoute>
+        <ProtectedRoute path='/users/:userId/recipe/:recipeId/edit-recipe' exact={true}>
+          <NavBar />
+          <EditPantryForm /> // FIX
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>

@@ -97,7 +97,6 @@ const pantriesReducer = (state = initialState, action) => {
                 [action.pantry.id] : action.pantry
             }
         case REMOVE_SINGLE:
-            console.log(action.pantry)
             const newState = { ...state };
             delete newState[action.pantry.id];
             return newState;
