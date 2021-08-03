@@ -19,12 +19,16 @@ const SingleRecipe = () => {
         dispatch(getAllUserRecipes(id))
     }, [dispatch, id])
 
+    let mealType;
+    if (Number(currRecipe?.type) === 1) mealType='Meal'
+    if (Number(currRecipe?.type) === 2) mealType='Snack'
+    if (Number(currRecipe?.type) === 3) mealType='Dessert'
+
     return (
         <div className='single-container'>
             <div className='single-inner'>
                 <div className='single-info'>
                     <h1> {currRecipe?.recipe_name}</h1>
-                    <h3> {currRecipe?.location}</h3>
                     <p> {currRecipe?.about}</p>
                     <div className='single-buttons'>
                         <EditRecipeButton id={id} recipeId={Number(recipeId)}/>
@@ -42,7 +46,14 @@ const SingleRecipe = () => {
                     />
                 </div>
             </div>
-
+            <div>
+                <p> Cook Time: {currRecipe?.cook_time} mins</p>
+                <p> Prep Time: {currRecipe?.prep_time} mins</p>
+                <p> Total Time: {currRecipe?.cook_time + currRecipe?.prep_time} mins</p>
+                <p> Servings: {currRecipe?.servings} servings</p>
+                <p> Type: {mealType}</p>
+                <p> Instructions: {currRecipe?.instructions}</p>
+            </div>
             <div className='ingredients-container'>
                 <h2> Ingredients</h2>
                 <p>here</p>
