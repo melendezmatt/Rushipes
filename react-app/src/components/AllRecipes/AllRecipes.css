@@ -1,0 +1,48 @@
+.outer-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.outer-title {
+    background-color: lightgray;
+}
+
+.add-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.add-button button {
+    outline: none;
+    display: block;
+    border: solid 1px #664a16;
+    color: #664a16;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1;
+    border-radius: 30px;
+    background: #fffffff8;
+    cursor: pointer;
+    transition: all 0.3s linear;
+    margin: 5px;
+}
+
+.add-button button:focus {
+    background-color: #664a16;
+    color: #fffffff8;
+}
+
+.add-button button:active {
+background: #fffffff8;
+color: #664a16;
+border: solid 1px #664a16;
+}
+
+.add-button button:hover {
+background-color: #664a16;
+color: #fffffff8;
+}

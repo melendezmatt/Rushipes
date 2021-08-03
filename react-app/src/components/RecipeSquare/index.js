@@ -33,8 +33,12 @@ const RecipeSquare = ({ recipe }) => {
                         Total Time: {recipe.prep_time + recipe.cook_time} mins
                     </div>
                 </div>
-                <EditRecipeButton id={id} recipeId={recipe.id}/>
-                <DeleteRecipeButton id={id} recipeId={recipe.id}/>
+                <div className='recipe-buttons'>
+                    <EditRecipeButton id={id} recipeId={recipe.id}/>
+                    <DeleteRecipeButton id={id} recipeId={recipe.id}/>
+                </div>
+
+
             </div>
         </div>
     )
