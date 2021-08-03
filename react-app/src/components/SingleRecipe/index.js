@@ -1,44 +1,43 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { getAllUserPantries} from '../../store/pantries';
-import DeletePantryButton from '../DeletePantryButton';
-import EditPantryButton from '../EditPantryButton'
-import './SinglePantry.css'
+import { getAllUserRecipes} from '../../store/recipes';
+import DeleteRecipeButton from '../DeleteRecipeButton';
+import EditRecipeButton from '../EditRecipeButton'
+import './SingleRecipe.css'
 
-const SinglePantry = () => {
+const SingleRecipe = () => {
     const loggedInUser = useSelector(state => state.session.user)
     const id = loggedInUser?.id
     const dispatch = useDispatch()
-    const { pantryId } = useParams()
-    console.log(pantryId)
-    const currPantry = useSelector((state) => {
-        return state.pantries[pantryId]
+    const { recipeId } = useParams()
+    const currRecipe = useSelector((state) => {
+        return state.recipes[recipeId]
     })
 
     useEffect(() => {
-        dispatch(getAllUserPantries(id))
+        dispatch(getAllUserRecipes(id))
     }, [dispatch, id])
 
     return (
         <div className='single-container'>
             <div className='single-inner'>
                 <div className='single-info'>
-                    <h1> {currPantry?.pantry_name}</h1>
-                    <h3> {currPantry?.location}</h3>
-                    <p> {currPantry?.about}</p>
+                    <h1> {currRecipe?.recipe_name}</h1>
+                    <h3> {currRecipe?.location}</h3>
+                    <p> {currRecipe?.about}</p>
                     <div className='single-buttons'>
-                        <EditPantryButton id={id} pantryId={Number(pantryId)}/>
-                        <DeletePantryButton id={id} pantryId={Number(pantryId)}/>
+                        <EditRecipeButton id={id} recipeId={Number(recipeId)}/>
+                        <DeleteRecipeButton id={id} recipeId={Number(recipeId)}/>
                     </div>
                 </div>
                 <div className='single-image'>
                     <img
                         style={{ width: "270px", height: "270px", objectFit: "cover", margin:'10px'}}
                         src={
-                            currPantry?.pantry_image_url === 'pantry_image_url.jpeg'
-                                ? 'https://cdn.pixabay.com/photo/2017/03/22/17/39/kitchen-2165756_960_720.jpg'
-                                : currPantry?.pantry_image_url
+                            currRecipe?.recipe_image_url === 'recipe_image_url.jpeg'
+                                ? 'https://cdn.pixabay.com/photo/2015/04/08/13/13/food-712665_960_720.jpg'
+                                : currRecipe?.recipe_image_url
                             }
                     />
                 </div>
@@ -66,4 +65,4 @@ const SinglePantry = () => {
     )
 }
 
-export default SinglePantry;
+export default SingleRecipe;

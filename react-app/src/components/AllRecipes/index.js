@@ -1,42 +1,42 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
-import { getAllUserPantries} from '../../store/pantries';
-import AllPantriesContainer from '../AllPantriesContainer';
-import './AllPantries.css'
+import { getAllUserRecipes } from '../../store/recipes';
+import AllRecipesContainer from '../AllRecipesContainer';
+import './AllRecipes.css'
 
-const AllPantries = () => {
+const AllRecipes = () => {
     const history = useHistory();
     const loggedInUser = useSelector((state) => state.session.user)
     const id = loggedInUser?.id
     const dispatch = useDispatch();
 
-    const currPantries = useSelector((state) => {
-        return state.pantries
+    const currRecipes = useSelector((state) => {
+        return state.recipes
     })
 
     useEffect(() => {
-        dispatch(getAllUserPantries(id))
+        dispatch(getAllUserRecipes(id))
     }, [dispatch, id])
 
-    const newPantry = async(e) => {
-        history.push(`/users/${loggedInUser.id}/new-pantry`)
+    const newRecipe = async(e) => {
+        history.push(`/users/${loggedInUser.id}/new-recipe`)
     }
 
     return (
         <div className='outer-container'>
             <div className='outer-header'>
                 <div className='outer-title'>
-                    <h1>{loggedInUser.username}'s Pantries</h1>
+                    <h1>{loggedInUser.username}'s Recipes</h1>
                 </div>
                 <div className='add-button'>
-                    <button onClick={newPantry}> Add Pantry</button>
+                    <button onClick={newRecipe}> New Recipe</button>
                 </div>
             </div>
-            <AllPantriesContainer allPantries={Object.values(currPantries)}/>
+            <AllRecipesContainer allRecipes={Object.values(currRecipes)}/>
         </div>
 
     )
 }
 
-export default AllPantries;
+export default AllRecipes;
