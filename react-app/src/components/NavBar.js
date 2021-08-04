@@ -1,12 +1,28 @@
 
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import DemoUserButton from './auth/DemoUserButton';
 
 const NavBar = () => {
   const loggedInUser = useSelector(state => state.session.user)
+  const id = loggedInUser?.id
+  const dispatch = useDispatch();
+
+  const currPantries = useSelector((state) => {
+      return state.pantries
+  })
+
+  const currRecipes = useSelector((state) => {
+    return state.recipes
+  })
+
+  useEffect(() => {
+      dispatch(getAllUserPantries(id))
+      dispatch(getAllUserRecipes(id))
+  }, [dispatch, id])
+
 
   let navContent;
   if (loggedInUser) {
