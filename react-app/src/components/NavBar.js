@@ -4,6 +4,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import DemoUserButton from './auth/DemoUserButton';
+import { getAllUserPantries} from '../../store/pantries';
+import { getAllUserRecipes} from '../../store/recipes';
 
 const NavBar = () => {
   const loggedInUser = useSelector(state => state.session.user)
