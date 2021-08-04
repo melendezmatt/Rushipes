@@ -21,6 +21,7 @@ def user(id):
 #Get All Pantries ['GET']
 @user_routes.route('/<int:id>/all-pantries', methods=['GET'])
 def get_all_pantries(id):
+    print(id)
     pantries = Pantry.query.filter(Pantry.user_id == id).all()
     return { 'pantries': [pantry.to_dict() for pantry in pantries]}
 
