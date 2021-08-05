@@ -1,16 +1,17 @@
 
-import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import DemoUserButton from './auth/DemoUserButton';
 import { AiFillHome } from 'react-icons/ai'
 import { RiFridgeFill } from 'react-icons/ri'
+import { BsPersonSquare } from 'react-icons/bs'
 import { GiCookingPot } from 'react-icons/gi'
 
 const NavBar = () => {
   const loggedInUser = useSelector(state => state.session.user)
-  const id = loggedInUser?.id
+
 
   let navContent;
   if (loggedInUser) {
@@ -32,6 +33,12 @@ const NavBar = () => {
           <NavLink to={`/users/${loggedInUser?.id}/recipes`} exact={true} activeClassName='active'>
             <GiCookingPot />
             My Recipes
+          </NavLink>
+        </li>
+        <li className='navbar__link'>
+          <NavLink to={`/about-me`} exact={true} activeClassName='active'>
+            <BsPersonSquare />
+            About Me
           </NavLink>
         </li>
         <li className="navbar__button">

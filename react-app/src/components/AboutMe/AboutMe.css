@@ -1,0 +1,51 @@
+.react-icons {
+    color: black;
+    margin-top: 40px;
+}
+
+.about-me-profilePic {
+    border-radius: 50%;
+    border-style: solid;
+    border-width: 5px;
+}
+
+.about-me-links h1 {
+    text-decoration: none;
+    color: black;
+    font-size: 55px;
+    display: flex;
+    flex-direction: column;
+}
+
+.about-me-links a {
+    margin-right: 5px;
+    text-decoration: none;
+}
+
+.about-me {
+    background-color: white;
+}
+
+.about-me-container {
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+}
+
+.about-me-inner {
+    margin-top: 50px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.single-link {
+    display: flex;
+    flex-direction: row;
+}
+
+.about-me-content {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}

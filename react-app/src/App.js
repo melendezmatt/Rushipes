@@ -17,6 +17,7 @@ import NewRecipeForm from './components/NewRecipe';
 import EditRecipeForm from './components/EditRecipeForm';
 import SingleRecipe from './components/SingleRecipe';
 import SplashPage from './components/SplashPage'
+import AboutMe from './components/AboutMe'
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
@@ -86,6 +87,10 @@ function App() {
         <ProtectedRoute path='/users/:userId/recipe/:recipeId/edit-recipe' exact={true}>
           <NavBar />
           <EditRecipeForm />
+        </ProtectedRoute>
+        <ProtectedRoute path='/about-me' exact={true}>
+          <NavBar />
+          <AboutMe />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>

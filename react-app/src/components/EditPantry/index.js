@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { useHistory, useParams  } from 'react-router-dom';
-import { getAllUserPantries, editOnePantry } from '../../store/pantries'
+import { getAllUserPantries, editOnePantry} from '../../store/pantries'
 import './EditPantry.css'
 import { RiFridgeFill } from 'react-icons/ri'
 
@@ -9,9 +9,12 @@ const EditPantryForm = () => {
     const loggedInUser = useSelector(state => state.session.user);
     const id = loggedInUser?.id
     const { pantryId } = useParams()
+
     const currPantry = useSelector((state) => {
         return state.pantries[pantryId]
     })
+
+
     const history = useHistory();
     const dispatch = useDispatch();
     const [errors, setErrors] = useState([]);
@@ -20,8 +23,6 @@ const EditPantryForm = () => {
     const [location, setLocation] = useState(currPantry?.location)
     const [about, setAbout] = useState(currPantry?.about)
 
-    console.log(id)
-    console.log(pantryId)
     useEffect(() => {
         dispatch(getAllUserPantries(id))
     }, [dispatch, id])
