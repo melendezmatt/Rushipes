@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { useHistory, useParams } from 'react-router-dom';
 import { editOneRecipe } from '../../store/recipes'
+import { GiCookingPot } from 'react-icons/gi'
+import './EditRecipe.css'
 
 const EditRecipeForm = () => {
     const loggedInUser = useSelector(state => state.session.user);
@@ -88,7 +90,10 @@ const EditRecipeForm = () => {
     }
 
     return (
-        <form onSubmit={onSubmit}>
+        <div className='form-container'>
+            <div className='form-inner-container'>
+            <h2> <GiCookingPot /> New Recipe <GiCookingPot /> </h2>
+        <form onSubmit={onSubmit} className='actual-form'>
             <div className="form-errors">
             {errors && errors.map(error => (
                 <li key={error}>{error + " field is required"}</li>
@@ -221,6 +226,8 @@ const EditRecipeForm = () => {
         <button type='submit'> Edit Recipe!</button>
         <button type='click' onClick={handleCancel}> Cancel </button>
         </form>
+        </div>
+        </div>
     )
 }
 

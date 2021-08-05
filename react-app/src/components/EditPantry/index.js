@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { useHistory, useParams  } from 'react-router-dom';
 import { getAllUserPantries, editOnePantry } from '../../store/pantries'
+import './EditPantry.css'
+import { RiFridgeFill } from 'react-icons/ri'
 
 const EditPantryForm = () => {
     const loggedInUser = useSelector(state => state.session.user);
@@ -68,7 +70,10 @@ const EditPantryForm = () => {
     };
 
     return (
-        <form onSubmit={onSubmit}>
+        <div className='form-container'>
+            <div className='form-inner-container'>
+            <h2> <RiFridgeFill /> Edit Pantry <RiFridgeFill /> </h2>
+            <form onSubmit={onSubmit} className='actual-form'>
             <div className="form-errors">
             {errors && errors.map(error => (
                 <li key={error}>{error + " field is required"}</li>
@@ -92,15 +97,16 @@ const EditPantryForm = () => {
             <div className="form-question-label">
                 <label>About</label>
             </div>
-            <div className="form-input">
-                <input
-                type='text-area'
-                name='about'
-                onChange={updateAbout}
-                value={about}
-                required={true}
-                ></input>
-            </div>
+            <div className="form-text-area">
+                    <textarea
+                    name='about'
+                    onChange={updateAbout}
+                    value={about}
+                    required={true}
+                    rows='5'
+                    cols='40'
+                    ></textarea>
+                </div>
         </div>
         <div className="form-question">
             <div className="form-question-label">
@@ -133,6 +139,8 @@ const EditPantryForm = () => {
         <button type='submit'> Edit Pantry!</button>
         <button type='click' onClick={handleCancel}> Cancel </button>
         </form>
+        </div>
+    </div>
     )
 }
 
