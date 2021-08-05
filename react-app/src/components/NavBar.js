@@ -4,27 +4,13 @@ import { useSelector, useDispatch } from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import LogoutButton from './auth/LogoutButton';
 import DemoUserButton from './auth/DemoUserButton';
-import { getAllUserPantries} from '../../store/pantries';
-import { getAllUserRecipes} from '../../store/recipes';
+import { AiFillHome } from 'react-icons/ai'
+import { RiFridgeFill } from 'react-icons/ri'
+import { GiCookingPot } from 'react-icons/gi'
 
 const NavBar = () => {
   const loggedInUser = useSelector(state => state.session.user)
   const id = loggedInUser?.id
-  const dispatch = useDispatch();
-
-  const currPantries = useSelector((state) => {
-      return state.pantries
-  })
-
-  const currRecipes = useSelector((state) => {
-    return state.recipes
-  })
-
-  useEffect(() => {
-      dispatch(getAllUserPantries(id))
-      dispatch(getAllUserRecipes(id))
-  }, [dispatch, id])
-
 
   let navContent;
   if (loggedInUser) {
@@ -32,17 +18,20 @@ const NavBar = () => {
       <ul className='navbar'>
         <li className='navbar__link'>
           <NavLink to='/' exact={true} activeClassName='active'>
+            <AiFillHome />
             Home
           </NavLink>
         </li>
         <li className='navbar__link'>
           <NavLink to={`/users/${loggedInUser?.id}/pantries`} exact={true} activeClassName='active'>
-            Pantries
+            <RiFridgeFill />
+            My Pantries
           </NavLink>
         </li>
         <li className='navbar__link'>
           <NavLink to={`/users/${loggedInUser?.id}/recipes`} exact={true} activeClassName='active'>
-            Recipes
+            <GiCookingPot />
+            My Recipes
           </NavLink>
         </li>
         <li className="navbar__button">
@@ -54,6 +43,7 @@ const NavBar = () => {
       <ul className='navbar'>
         <li className='navbar__link'>
           <NavLink to='/' exact={true} activeClassName='active'>
+            <AiFillHome />
             Home
           </NavLink>
         </li>
@@ -74,6 +64,15 @@ const NavBar = () => {
   }
   return (
     <nav>
+      { loggedInUser? <div className="nav-logo">
+          <NavLink id="navbar__brand-home" to='/' exact={true} activeClassName='active'>
+              <img src='https://user-images.githubusercontent.com/79602970/128381947-80552022-bcfe-4294-92c7-b5174ba826e0.png' alt='logo' id='navbar__logo' />
+          </NavLink>
+        </div> : <div className="nav-logo">
+          <NavLink id="navbar__brand-home" to='/' exact={true} activeClassName='active'>
+              <img src='https://user-images.githubusercontent.com/79602970/128381947-80552022-bcfe-4294-92c7-b5174ba826e0.png' alt='logo' id='navbar__logo' />
+          </NavLink>
+        </div>}
       {navContent}
     </nav>
   );

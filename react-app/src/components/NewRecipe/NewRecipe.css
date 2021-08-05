@@ -1,0 +1,74 @@
+.form-container {
+    display: flex;
+    justify-content: center;
+
+
+}
+
+.form-inner-container {
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+    margin-top: 100px;
+    padding-top: 15px;
+    padding-bottom: 25px;
+    width: 500px;
+}
+
+
+.actual-form {
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    align-content: center;
+    justify-content: center;
+}
+
+h2 {
+    display: flex;
+    justify-content: center;
+}
+
+.form-question-label {
+    display: flex;
+    justify-content: center;
+    margin: 5px;
+}
+
+.actual-form label {
+    font-weight: bold;
+}
+
+.actual-form button {
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+    outline: none;
+    display: block;
+    border: solid 1px #664a16;
+    color: #664a16;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1;
+    border-radius: 30px;
+    background: white;
+    cursor: pointer;
+    transition: all 0.3s linear;
+    margin: 5px;
+}
+
+.actual-form button:focus {
+    background-color: #664a16;
+    color: white;
+}
+
+.actual-form button:active {
+background: white;
+color: #664a16;
+border: solid 1px #664a16;
+}
+
+.actual-form button:hover {
+background-color: #664a16;
+color: white;
+}

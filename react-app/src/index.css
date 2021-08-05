@@ -222,3 +222,37 @@ nav {
     background-color: #664a16;
     color: #e2d8ca;
 }
+
+#navbar__logo{
+    display: flex;
+    width: 250px;
+    /* padding: 0 100px; */
+    line-height: 80px;
+    margin-bottom: 25px;
+}
+
+.cover-container {
+    max-width: 1000px;
+    max-height: 2000px;
+    background-color: white;
+    margin-top: 250px;
+    margin-left: 500px;
+    border-radius: 10%;
+}
+
+#splash__logo{
+    display: flex;
+    width: 750px;
+    /* padding: 0 100px; */
+    line-height: 80px;
+    margin-top: 15px;
+    margin-bottom: 25px;
+    margin-left: 150px;
+    transform: rotate(2deg)
+}
+
+.quote-container {
+    margin-top: 0px;
+    margin-left: 225px;
+    margin-bottom: 25px;
+}

@@ -16,6 +16,7 @@ import AllRecipes from './components/AllRecipes';
 import NewRecipeForm from './components/NewRecipe';
 import EditRecipeForm from './components/EditRecipeForm';
 import SingleRecipe from './components/SingleRecipe';
+import SplashPage from './components/SplashPage'
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
@@ -36,9 +37,11 @@ function App() {
       <Switch>
         <Route path='/login' exact={true}>
           <LoginForm />
+          <SplashPage />
         </Route>
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
+          <SplashPage />
         </Route>
         <ProtectedRoute path='/users' exact={true}>
           <NavBar />

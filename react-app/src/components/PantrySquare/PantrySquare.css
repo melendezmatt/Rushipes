@@ -11,6 +11,7 @@
     width: 550px;
     background-color: lightgray;
     margin: 10px;
+    box-shadow: 1px 1px;
 }
 
 .pantry-info{
