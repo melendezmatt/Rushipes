@@ -11,13 +11,15 @@ const NewPantryForm = () => {
     const dispatch = useDispatch();
     const [errors, setErrors] = useState([]);
     const [pantryName, setPantryName] = useState('')
-    const [pantryImage, setPantryImage] = useState('')
+    let [pantryImage, setPantryImage] = useState('')
     const [location, setLocation] = useState('')
     const [about, setAbout] = useState('')
 
     const onSubmit = async(e) => {
         e.preventDefault();
-
+        if (pantryImage.length === 0) {
+            pantryImage = 'pantry_image_url.jpeg'
+        }
         const formInfo = {
             user_id: loggedInUser?.id,
             pantry_name: pantryName,
@@ -122,7 +124,6 @@ const NewPantryForm = () => {
                         name='pantryImage'
                         onChange={updatePantryImage}
                         value={pantryImage}
-                        required={true}
                         ></input>
                     </div>
                 </div>
