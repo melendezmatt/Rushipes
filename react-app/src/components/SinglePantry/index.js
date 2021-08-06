@@ -40,26 +40,13 @@ const SinglePantry = () => {
                                 ? 'https://cdn.pixabay.com/photo/2017/03/22/17/39/kitchen-2165756_960_720.jpg'
                                 : currPantry?.pantry_image_url
                             }
+                        alt='pantryImg'
                     />
                 </div>
             </div>
 
             <div className='ingredients-container'>
                 <h2> Ingredients</h2>
-                <p>here</p>
-                <p>here</p>
-                <p>here</p>
-                <p>here</p>
-                <p>here</p>
-                <p>here</p>
-                <p>here</p>
-                <p>here</p>
-                <p>here</p>
-                <p>here</p>
-                <p>here</p>
-                <p>here</p>
-                <p>here</p>
-
             </div>
         </div>
 

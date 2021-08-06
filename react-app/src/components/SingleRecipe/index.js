@@ -43,34 +43,32 @@ const SingleRecipe = () => {
                                 ? 'https://cdn.pixabay.com/photo/2015/04/08/13/13/food-712665_960_720.jpg'
                                 : currRecipe?.recipe_image_url
                             }
+                        alt='recipeImg'
                     />
                 </div>
             </div>
-            <div>
+            <div className='info-container'>
                 <p> Cook Time: {currRecipe?.cook_time} mins</p>
                 <p> Prep Time: {currRecipe?.prep_time} mins</p>
                 <p> Total Time: {currRecipe?.cook_time + currRecipe?.prep_time} mins</p>
                 <p> Servings: {currRecipe?.servings} servings</p>
                 <p> Type: {mealType}</p>
-                <p> Instructions: {currRecipe?.instructions}</p>
             </div>
-            <div className='ingredients-container'>
-                <h2> Ingredients</h2>
-                <p>here</p>
-                <p>here</p>
-                <p>here</p>
-                <p>here</p>
-                <p>here</p>
-                <p>here</p>
-                <p>here</p>
-                <p>here</p>
-                <p>here</p>
-                <p>here</p>
-                <p>here</p>
-                <p>here</p>
-                <p>here</p>
+            <div className='combined-container'>
+                <div className='instructions-container'>
+                    <div className='instructions-inner-container'>
+                        <h2> Instructions</h2>
+                        <h3> {currRecipe?.instructions}</h3>
+                    </div>
 
+                </div>
+                <div className='ingredients-container'>
+                    <div className='ingredients-inner-container'>
+                        <h2> Ingredients</h2>
+                    </div>
+                </div>
             </div>
+
         </div>
 
     )

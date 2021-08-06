@@ -1,0 +1,91 @@
+.pantries-inner-container {
+    background-color: burlywood;
+    padding: 10px;
+    border-radius: 5%;
+}
+
+.recipes-inner-container {
+    background-color: burlywood;
+    padding: 10px;
+    border-radius: 5%;
+}
+
+.combined-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.mapped-pantries {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto;
+    column-gap: 5px;
+    row-gap: 5px;
+}
+
+.mapped-recipes {
+    display: grid;
+    grid-template-columns: auto auto;
+    grid-template-rows: auto;
+    column-gap: 5px;
+    row-gap: 5px;
+}
+
+.reroute-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.reroute-button a {
+    text-decoration: none;
+}
+
+.reroute-button button {
+    margin: 10px;
+    outline: none;
+    display: block;
+    border: solid 1px #664a16;
+    color: #664a16;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1;
+    border-radius: 30px;
+    background: burlywood;
+    cursor: pointer;
+    transition: all 0.3s linear;
+    margin: 5px;
+}
+
+.reroute-button button:focus {
+    background-color: #664a16;
+    color: burlywood;
+}
+
+.reroute-button button:active {
+background: burlywood;
+color: #664a16;
+border: solid 1px #664a16;
+}
+
+.reroute-button button:hover {
+background-color: #664a16;
+color: burlywood;
+}
+
+.welcome-banner {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color:burlywood;
+    border-radius: 5%;
+    width: 400px;
+    margin: 20px;
+}
+
+.welcome-outer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

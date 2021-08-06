@@ -32,3 +32,17 @@
 .single-buttons button {
     background-color: burlywood;
 }
+
+.combined-container {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.instructions-inner-container {
+    background-color: coral;
+}
+
+.ingredients-inner-container {
+    background-color: blue;
+}
