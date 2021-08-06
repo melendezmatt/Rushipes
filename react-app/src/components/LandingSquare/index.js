@@ -5,8 +5,8 @@ import './LandingSquare.css'
 const LandingSquare = ({input}) => {
     const loggedInUser = useSelector((state) => state.session.user)
     const id = loggedInUser?.id
-    const image = input?.pantry_image_url ? input?.pantry_image_url : ( input?.recipe_image_url ? input?.recipe_image_url : null)
-    const name = input?.pantry_name ? input?.pantry_name : ( input?.recipe_name ? input?.recipe_name : null)
+    const image = input?.pantry_image_url ? input?.pantry_image_url : input?.recipe_image_url
+    const name = input?.pantry_name ? input?.pantry_name : input?.recipe_name
     let link;
 
     if (input?.pantry_name) {
