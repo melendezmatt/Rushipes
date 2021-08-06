@@ -18,7 +18,7 @@ const deleteOneIngredient = (ingredient) => ({
 })
 
 export const getAllPantryIngredients = (id, pantryId) => async (dispatch) => {
-    const res = await fetch(`/api/users/${id}/pantry/${pantryId}/all-ingredients`)
+    const res = await fetch(`/api/users/${id}/pantry/${Number(pantryId)}/all-ingredients`)
     if (res.ok) {
         const ingredients = await res.json()
         dispatch(setIngredients(ingredients))

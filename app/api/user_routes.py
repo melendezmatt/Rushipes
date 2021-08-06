@@ -1,7 +1,9 @@
+from app.models import ingredient
+from app.models.ingredient import Ingredient
 from flask import Blueprint, request
 from flask_login import login_required
 from app.models import User, Pantry, db, Recipe
-from app.forms import PantryForm, RecipeForm
+from app.forms import PantryForm, RecipeForm, IngredientForm
 
 user_routes = Blueprint('users', __name__)
 
@@ -135,3 +137,29 @@ def delete_single_recipe(id, recipeId):
     db.session.delete(recipe)
     db.session.commit()
     return recipe.to_dict()
+
+#Get All A Pantry's Ingredients ['GET']
+@user_routes.route('/<int:id>/pantry/<int:pantryId>/all-ingredients', methods=['GET'])
+def get_all_ingredients_in_pantry(id, pantryId):
+    ingredients = Ingredient.query.filter(Ingredient.pantry_id == pantryId).all()
+    return { 'ingredients': [ingredient.to_dict() for ingredient in ingredients]}
+
+@user_routes.route('/<int:id>/pantry/<int:pantryId>/new-ingredient', methods=['POST'])
+def post_single_ingredient(id, pantryId):
+    form = IngredientForm()
+    form['csrf_token'].data = request.cookies['csrf_token']
+    if form.validate_on_submit():
+        new_ingredient = Ingredient(
+            pantry_id = pantryId,
+            ingredient_name = form.data['ingredient_name'],
+            ingredient_image_url = form.data['ingredient_image_url'],
+            about = form.data['about'],
+            calories = request.json['calories'],
+            fat = request.json['fat'],
+            carbohydrate = request.json['carbohydrate'],
+            protein = request.json['protein']
+        )
+        db.session.add(new_ingredient)
+        db.session.commit()
+        return new_ingredient.to_dict()
+    return {"errors": form.errors}

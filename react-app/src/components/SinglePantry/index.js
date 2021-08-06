@@ -2,23 +2,29 @@ import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
 import { getAllUserPantries} from '../../store/pantries';
+import { getAllPantryIngredients } from '../../store/ingredients';
 import DeletePantryButton from '../DeletePantryButton';
 import EditPantryButton from '../EditPantryButton'
 import './SinglePantry.css'
+import IngredientsContainer from '../IngredientsContainer';
 
 const SinglePantry = () => {
     const loggedInUser = useSelector(state => state.session.user)
     const id = loggedInUser?.id
     const dispatch = useDispatch()
     const { pantryId } = useParams()
-    console.log(pantryId)
     const currPantry = useSelector((state) => {
         return state.pantries[pantryId]
     })
 
+    const allIngredients = useSelector((state) => {
+        return state.ingredients
+    })
+
     useEffect(() => {
         dispatch(getAllUserPantries(id))
-    }, [dispatch, id])
+        dispatch(getAllPantryIngredients(id, Number(pantryId)))
+    }, [dispatch, id, pantryId])
 
     return (
         <div className='single-container'>
@@ -47,6 +53,7 @@ const SinglePantry = () => {
 
             <div className='ingredients-container'>
                 <h2> Ingredients</h2>
+                <IngredientsContainer allIngredients={Object.values(allIngredients)} />
             </div>
         </div>
 
