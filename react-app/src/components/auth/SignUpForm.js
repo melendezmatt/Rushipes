@@ -99,8 +99,8 @@ const SignUpForm = () => {
             ></input>
           </div>
           <div className='sign-up-buttons'>
-            <button onClick={onClick}>Login</button>
             <button type='submit'>Sign Up</button>
+            <button onClick={onClick}>Login</button>
             <DemoUserButton />
           </div>
         </form>
