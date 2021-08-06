@@ -1,7 +1,7 @@
 const GET_PANTRIES = 'pantries/GET_PANTRIES'
 const GET_SINGLE = 'pantries/GET_SINGLE'
 const REMOVE_SINGLE = 'pantries/REMOVE_SINGLE'
-
+const WIPE_PANTRIES ='recipes/WIPE_PANTRIES'
 const setPantries = (pantries) => ({
     type: GET_PANTRIES,
     pantries
@@ -15,6 +15,10 @@ const setOnePantry = (pantry) => ({
 const deleteOnePantry = (pantry) => ({
     type: REMOVE_SINGLE,
     pantry,
+})
+
+const removePantries = () => ({
+    type: WIPE_PANTRIES
 })
 
 export const getAllUserPantries = (id) => async (dispatch) => {
@@ -76,14 +80,19 @@ export const removeOnePantry = (id, pantryId) => async (dispatch) => {
     }
 }
 
+export const refreshPantries = () => async (dispatch) => {
+    dispatch(removePantries())
+    return {'removed' : 'success'}
+}
+//pantries poss null?
 const initialState = {}
 
 const pantriesReducer = (state = initialState, action) => {
     switch (action.type) {
         case GET_PANTRIES:
             const allPantries = {};
-            action.pantries.pantries.forEach((pantry) => {
-                allPantries[pantry.id] = pantry;
+            action.pantries['pantries'].forEach((pantry) => {
+                allPantries[pantry['id']] = pantry;
             }
             );
             return {
@@ -99,6 +108,8 @@ const pantriesReducer = (state = initialState, action) => {
             const newState = { ...state };
             delete newState[action.pantry.id];
             return newState;
+        case WIPE_PANTRIES:
+            return {}
         default:
             return state
     }

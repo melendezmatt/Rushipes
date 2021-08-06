@@ -43,10 +43,6 @@ const SinglePantry = () => {
                     />
                 </div>
             </div>
-
-            <div className='ingredients-container'>
-                <h2> Ingredients</h2>
-            </div>
         </div>
 
     )
