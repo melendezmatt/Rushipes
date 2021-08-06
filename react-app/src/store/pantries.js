@@ -31,6 +31,7 @@ export const getOnePantry = (id, pantryId) => async (dispatch) => {
 
     if (res.ok) {
       const pantry = await res.json();
+      console.log(pantry)
       dispatch(setOnePantry(pantry));
       return pantry
     }
@@ -94,7 +95,7 @@ const pantriesReducer = (state = initialState, action) => {
         case GET_SINGLE:
             return {
                 ...state,
-                [action.pantry.id] : action.pantry
+                currentPantry : action.pantry
             }
         case REMOVE_SINGLE:
             const newState = { ...state };
