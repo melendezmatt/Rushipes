@@ -18,7 +18,7 @@ const EditRecipeForm = () => {
     const dispatch = useDispatch();
     const [errors, setErrors] = useState([]);
     const [recipeName, setRecipeName] = useState(currRecipe?.recipe_name)
-    const [recipeImage, setRecipeImage] = useState(currRecipe?.recipe_image_url)
+    let [recipeImage, setRecipeImage] = useState(currRecipe?.recipe_image_url)
     const [about, setAbout] = useState(currRecipe?.about)
     const [instructions, setInstructions] = useState(currRecipe?.instructions)
     const [cookTime, setCookTime] = useState(currRecipe?.cook_time)
@@ -28,7 +28,9 @@ const EditRecipeForm = () => {
 
     const onSubmit = async(e) => {
         e.preventDefault();
-
+        if (recipeImage.length === 0) {
+            recipeImage = 'recipe_image_url.jpeg'
+        }
         const formInfo = {
             user_id: id,
             recipe_name: recipeName,
@@ -149,7 +151,6 @@ const EditRecipeForm = () => {
                 name='recipeImage'
                 onChange={updateRecipeImage}
                 value={recipeImage}
-                required={true}
                 ></input>
             </div>
         </div>
