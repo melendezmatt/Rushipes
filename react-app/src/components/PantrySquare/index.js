@@ -10,14 +10,17 @@ const PantrySquare = ({ pantry }) => {
     return (
         <div className='pantry-square'>
             <div className='pantry-image'>
-                <img
-                    style={{ width: "200px", height: "200px", objectFit: "cover", margin:'10px', borderRadius:'50%'}}
-                    src={
-                        pantry?.pantry_image_url === 'pantry_image_url.jpeg'
-                            ? 'https://cdn.pixabay.com/photo/2017/03/22/17/39/kitchen-2165756_960_720.jpg'
-                            : pantry?.pantry_image_url
-                        }
-                />
+                <NavLink to={`/users/${id}/pantry/${pantry.id}`}>
+                    <img
+                        style={{ width: "200px", height: "200px", objectFit: "cover", margin:'10px', borderRadius:'50%'}}
+                        src={
+                            pantry?.pantry_image_url === 'pantry_image_url.jpeg'
+                                ? 'https://cdn.pixabay.com/photo/2017/03/22/17/39/kitchen-2165756_960_720.jpg'
+                                : pantry?.pantry_image_url
+                            }
+                        alt='pantryImg'
+                    />
+                </NavLink>
             </div>
             <div className='pantry-content'>
                 <div className='pantry-info'>

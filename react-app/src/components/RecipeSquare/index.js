@@ -10,14 +10,17 @@ const RecipeSquare = ({ recipe }) => {
     return (
         <div className='recipe-square'>
             <div className='recipe-image'>
-                <img
-                    style={{ width: "200px", height: "200px", objectFit: "cover", margin:'10px', borderRadius:'50%'}}
-                    src={
-                        recipe?.recipe_image_url === 'recipe_image_url.jpeg'
-                            ? 'https://cdn.pixabay.com/photo/2015/04/08/13/13/food-712665_960_720.jpg'
-                            : recipe?.recipe_image_url
-                        }
-                />
+                <NavLink to={`/users/${id}/recipe/${recipe.id}`}>
+                    <img
+                        style={{ width: "200px", height: "200px", objectFit: "cover", margin:'10px', borderRadius:'50%'}}
+                        src={
+                            recipe?.recipe_image_url === 'recipe_image_url.jpeg'
+                                ? 'https://cdn.pixabay.com/photo/2015/04/08/13/13/food-712665_960_720.jpg'
+                                : recipe?.recipe_image_url
+                            }
+                        alt='recipeImg'
+                    />
+                </NavLink>
             </div>
             <div className='recipe-content'>
                 <div className='recipe-info'>

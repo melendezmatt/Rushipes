@@ -18,6 +18,7 @@ import EditRecipeForm from './components/EditRecipeForm';
 import SingleRecipe from './components/SingleRecipe';
 import SplashPage from './components/SplashPage'
 import AboutMe from './components/AboutMe'
+import LandingPage from './components/LandingPage'
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
@@ -54,7 +55,7 @@ function App() {
         </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >
           <NavBar />
-          <h1>My Home Page</h1>
+          <LandingPage />
         </ProtectedRoute>
         <ProtectedRoute path='/users/:userId/pantries' exact={true}>
           <NavBar />

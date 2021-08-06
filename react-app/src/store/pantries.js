@@ -95,7 +95,7 @@ const pantriesReducer = (state = initialState, action) => {
         case GET_SINGLE:
             return {
                 ...state,
-                currentPantry : action.pantry
+                [action.pantry.id] : action.pantry
             }
         case REMOVE_SINGLE:
             const newState = { ...state };
