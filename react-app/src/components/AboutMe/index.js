@@ -30,7 +30,7 @@ const AboutMe = () => {
 
                         </a>
                         <a rel="noreferrer" href='https://angel.co/u/matthew-melendez-1' target='_blank'>
-                            <h1> Angellist </h1>
+                            <h1> AngelList </h1>
 
                         </a>
                         </div>
