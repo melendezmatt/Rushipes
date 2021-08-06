@@ -1,6 +1,7 @@
 const GET_RECIPES = 'recipes/GET_RECIPES'
 const GET_SINGLE = 'recipes/GET_SINGLE'
 const REMOVE_SINGLE = 'recipes/REMOVE_SINGLE'
+const WIPE_RECIPES ='recipes/WIPE_RECIPES'
 
 const setRecipes = (recipes) => ({
     type: GET_RECIPES,
@@ -15,6 +16,10 @@ const setOneRecipe = (recipe) => ({
 const deleteOneRecipe = (recipe) => ({
     type: REMOVE_SINGLE,
     recipe,
+})
+
+const removeRecipes = () => ({
+    type: WIPE_RECIPES
 })
 
 export const getAllUserRecipes = (id) => async (dispatch) => {
@@ -65,7 +70,6 @@ export const editOneRecipe = (payload, recipeId) => async (dispatch) => {
 };
 
 export const removeOneRecipe = (id, recipeId) => async (dispatch) => {
-    console.log(id, recipeId)
     const res = await fetch(`/api/users/${id}/recipe/${recipeId}`, {
         method: 'DELETE'
     });
@@ -77,6 +81,11 @@ export const removeOneRecipe = (id, recipeId) => async (dispatch) => {
     }
 }
 
+export const refreshRecipes = () => async (dispatch) => {
+    dispatch(removeRecipes())
+    return {'removed' : 'success'}
+}
+//recipes poss null?
 const initialState = {}
 
 const recipesReducer = (state = initialState, action) => {
@@ -100,6 +109,8 @@ const recipesReducer = (state = initialState, action) => {
             const newState = { ...state };
             delete newState[action.recipe.id];
             return newState;
+        case WIPE_RECIPES:
+            return {}
         default:
             return state
     }

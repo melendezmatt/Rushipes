@@ -8,24 +8,23 @@ import './LandingPage.css'
 
 const LandingPage = () => {
     const loggedInUser = useSelector((state) => state.session.user)
-    const id = loggedInUser?.id
+    const userId = loggedInUser?.id
     const dispatch = useDispatch();
 
     const currPantries = useSelector((state) => {
-        return state.pantries
+        return  Object.values(state.pantries)
     })
 
     const currRecipes = useSelector((state) => {
-        return state.recipes
+        return  Object.values(state.recipes)
     })
 
     useEffect(() => {
-        dispatch(getAllUserPantries(id))
-        dispatch(getAllUserRecipes(id))
-    }, [dispatch, id])
+        dispatch(getAllUserPantries(userId))
+        dispatch(getAllUserRecipes(userId))
+    }, [dispatch, userId])
 
-    const allPantries = Object.values(currPantries)
-    const allRecipes = Object.values(currRecipes)
+
     return (
         <div className='landing-container'>
             <div className='welcome-outer'>
@@ -38,12 +37,12 @@ const LandingPage = () => {
                     <div className='pantries-inner-container'>
                         <h2> Pantries</h2>
                         <div className='mapped-pantries'>
-                        {allPantries?.map(input => (
-                            <LandingSquare input={input} key={input.id}/>
+                        {currPantries?.map(input => (
+                            <LandingSquare input={input} key={input?.id}/>
                         ))}
                         </div>
                         <div className='reroute-button'>
-                            <NavLink to={`/users/${id}/pantries`}>
+                            <NavLink to={`/users/${userId}/pantries`}>
                                 <button> View All Pantries</button>
                             </NavLink>
                         </div>
@@ -54,12 +53,12 @@ const LandingPage = () => {
                     <div className='recipes-inner-container'>
                         <h2> Recipes</h2>
                         <div className='mapped-recipes'>
-                        {allRecipes?.map(input => (
-                            <LandingSquare input={input} key={input.id}/>
+                        {currRecipes?.map(input => (
+                            <LandingSquare input={input} key={input?.id}/>
                         ))}
                         </div>
                         <div className='reroute-button'>
-                            <NavLink to={`/users/${id}/recipes`}>
+                            <NavLink to={`/users/${userId}/recipes`}>
                                 <button> View All Recipes</button>
                             </NavLink>
                         </div>

@@ -62,11 +62,6 @@ const SingleRecipe = () => {
                     </div>
 
                 </div>
-                <div className='ingredients-container'>
-                    <div className='ingredients-inner-container'>
-                        <h2> Ingredients</h2>
-                    </div>
-                </div>
             </div>
 
         </div>
