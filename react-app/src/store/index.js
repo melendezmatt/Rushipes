@@ -4,12 +4,14 @@ import pantriesReducer from './pantries';
 import session from './session'
 import usersReducer from './users';
 import recipesReducer from './recipes';
+import ingredientsReducer from './ingredients';
 
 const rootReducer = combineReducers({
   session,
   users: usersReducer,
   pantries: pantriesReducer,
-  recipes: recipesReducer
+  recipes: recipesReducer,
+  ingredients: ingredientsReducer
 });
 
 
