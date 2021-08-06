@@ -31,7 +31,6 @@ export const getOnePantry = (id, pantryId) => async (dispatch) => {
 
     if (res.ok) {
       const pantry = await res.json();
-      console.log(pantry)
       dispatch(setOnePantry(pantry));
       return pantry
     }
@@ -66,7 +65,6 @@ export const editOnePantry = (payload, pantryId) => async (dispatch) => {
 };
 
 export const removeOnePantry = (id, pantryId) => async (dispatch) => {
-    console.log(id, pantryId)
     const res = await fetch(`/api/users/${id}/pantry/${pantryId}`, {
         method: 'DELETE'
     });

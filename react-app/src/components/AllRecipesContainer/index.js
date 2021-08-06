@@ -1,6 +1,5 @@
 import RecipeSquare from '../RecipeSquare'
 const AllRecipesContainer = ({allRecipes}) => {
-    console.log(allRecipes)
     return (
         <div className='inner-container'>
             {allRecipes?.map(recipe => (

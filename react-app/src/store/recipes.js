@@ -65,7 +65,6 @@ export const editOneRecipe = (payload, recipeId) => async (dispatch) => {
 };
 
 export const removeOneRecipe = (id, recipeId) => async (dispatch) => {
-    console.log(id, recipeId)
     const res = await fetch(`/api/users/${id}/recipe/${recipeId}`, {
         method: 'DELETE'
     });

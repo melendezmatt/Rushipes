@@ -11,7 +11,6 @@ const SinglePantry = () => {
     const id = loggedInUser?.id
     const dispatch = useDispatch()
     const { pantryId } = useParams()
-    console.log(pantryId)
     const currPantry = useSelector((state) => {
         return state.pantries[pantryId]
     })
