@@ -1,3 +1,4 @@
+from app.models.ingredient import Ingredient
 from .db import db
 
 class Pantry(db.Model):
@@ -11,7 +12,7 @@ class Pantry(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey('users.id'), nullable=False)
 
     user = db.relationship('User',  uselist=False, back_populates="pantry")
-
+    ingredient = db.relationship('Ingredient',  uselist=False, back_populates="pantry")
 
     def to_dict(self):
         return {
