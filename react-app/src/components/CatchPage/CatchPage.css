@@ -1,0 +1,52 @@
+.catch-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.catch-inner-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 75px;
+    background-color: blanchedalmond;
+    padding: 100px;
+    padding-bottom: 20px;
+}
+.home-button button {
+    outline: none;
+    display: block;
+    border: solid 1px #664a16;
+    color: #664a16;
+    font-size: 1rem;
+    font-weight: 500;
+    line-height: 1;
+    border-radius: 30px;
+    background: blanchedalmond;
+    cursor: pointer;
+    transition: all 0.3s linear;
+    margin: 5px;
+}
+
+.home-button button:focus {
+    background-color: #664a16;
+    color: blanchedalmond;
+}
+
+.home-button button:active {
+background: blanchedalmond;
+color: #664a16;
+border: solid 1px #664a16;
+}
+
+.home-button button:hover {
+background-color: #664a16;
+color: blanchedalmond;
+}
+
+.home-button a {
+    text-decoration: none;
+}

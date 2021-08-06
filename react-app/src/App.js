@@ -19,6 +19,8 @@ import SingleRecipe from './components/SingleRecipe';
 import SplashPage from './components/SplashPage'
 import AboutMe from './components/AboutMe'
 import LandingPage from './components/LandingPage'
+import CatchPage from './components/CatchPage';
+
 function App() {
   const [loaded, setLoaded] = useState(false);
   const dispatch = useDispatch();
@@ -92,6 +94,10 @@ function App() {
         <ProtectedRoute path='/about-me' exact={true}>
           <NavBar />
           <AboutMe />
+        </ProtectedRoute>
+        <ProtectedRoute path='/*' >
+          <NavBar />
+          <CatchPage />
         </ProtectedRoute>
       </Switch>
     </BrowserRouter>
