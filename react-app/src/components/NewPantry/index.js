@@ -30,15 +30,14 @@ const NewPantryForm = () => {
 
         const data = await dispatch(createOnePantry(formInfo))
         if (data) {
-            if(data.errors){
-                let errs = Object.keys(data.errors)
+            if(data.errors) {
+                let errs = Object.values(data.errors)
                 setErrors(errs)
             } else{
                 history.push(`/users/${loggedInUser.id}/pantries`)
             }
         }
     }
-
 
     const updatePantryName = (e) => {
         setPantryName(e.target.value);
@@ -68,7 +67,7 @@ const NewPantryForm = () => {
                 <form onSubmit={onSubmit}  className='actual-form'>
                     <div className="form-errors">
                     {errors && errors.map(error => (
-                        <li key={error}>{error + " field is required"}</li>
+                        <li key={error}>{error}</li>
                     ))}
                     </div>
                 <div className="form-question">
@@ -81,7 +80,6 @@ const NewPantryForm = () => {
                         name='pantryName'
                         onChange={updatePantryName}
                         value={pantryName}
-                        required={true}
                         ></input>
                     </div>
                 </div>
@@ -94,7 +92,6 @@ const NewPantryForm = () => {
                     name='about'
                     onChange={updateAbout}
                     value={about}
-                    required={true}
                     rows='5'
                     cols='40'
                     ></textarea>
@@ -110,7 +107,6 @@ const NewPantryForm = () => {
                         name='location'
                         onChange={updateLocation}
                         value={location}
-                        required={true}
                         ></input>
                     </div>
                 </div>

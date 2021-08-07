@@ -51,7 +51,7 @@ export const createOnePantry = (payload) => async (dispatch) => {
         const pantry = await res.json()
         dispatch(setOnePantry(pantry))
         return pantry
-    }
+    } 
 }
 
 export const editOnePantry = (payload, pantryId) => async (dispatch) => {

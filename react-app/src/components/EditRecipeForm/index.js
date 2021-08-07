@@ -46,7 +46,7 @@ const EditRecipeForm = () => {
         const data = await dispatch(editOneRecipe(formInfo, recipeId))
         if (data) {
             if(data.errors){
-                let errs = Object.keys(data.errors)
+                let errs = Object.values(data.errors)
                 setErrors(errs)
             } else{
                 history.push(`/users/${loggedInUser.id}/recipes`)
@@ -98,7 +98,7 @@ const EditRecipeForm = () => {
         <form onSubmit={onSubmit} className='actual-form'>
             <div className="form-errors">
             {errors && errors.map(error => (
-                <li key={error}>{error + " field is required"}</li>
+                <li key={error}>{error}</li>
             ))}
             </div>
         <div className="form-question">

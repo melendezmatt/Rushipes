@@ -43,7 +43,7 @@ const EditPantryForm = () => {
         const data = await dispatch(editOnePantry(formInfo, pantryId))
         if (data) {
             if(data.errors){
-                let errs = Object.keys(data.errors)
+                let errs = Object.values(data.errors)
                 setErrors(errs)
             } else{
                 history.push(`/users/${loggedInUser.id}/pantries`)
@@ -79,7 +79,7 @@ const EditPantryForm = () => {
             <form onSubmit={onSubmit} className='actual-form'>
             <div className="form-errors">
             {errors && errors.map(error => (
-                <li key={error}>{error + " field is required"}</li>
+                <li key={error}>{error}</li>
             ))}
             </div>
         <div className="form-question">
@@ -92,7 +92,6 @@ const EditPantryForm = () => {
                 name='pantryName'
                 onChange={updatePantryName}
                 value={pantryName}
-                required={true}
                 ></input>
             </div>
         </div>
@@ -105,7 +104,6 @@ const EditPantryForm = () => {
                     name='about'
                     onChange={updateAbout}
                     value={about}
-                    required={true}
                     rows='5'
                     cols='40'
                     ></textarea>
@@ -121,7 +119,6 @@ const EditPantryForm = () => {
                 name='location'
                 onChange={updateLocation}
                 value={location}
-                required={true}
                 ></input>
             </div>
         </div>
