@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom';
-import { createOneRecipe } from '../../store/recipes'
+import { createOneRecipe, refreshRecipes } from '../../store/recipes'
 import { GiCookingPot } from 'react-icons/gi'
 import './NewRecipe.css'
 
@@ -42,6 +42,7 @@ const NewRecipeForm = () => {
                 let errs = Object.values(data.errors)
                 setErrors(errs)
             } else{
+                dispatch(refreshRecipes())
                 history.push(`/users/${loggedInUser.id}/recipes`)
             }
         }
@@ -81,6 +82,7 @@ const NewRecipeForm = () => {
 
     const handleCancel = (e) => {
         e.preventDefault()
+        dispatch(refreshRecipes())
         history.push(`/users/${loggedInUser?.id}/recipes`)
     }
 

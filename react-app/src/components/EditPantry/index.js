@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { useHistory, useParams  } from 'react-router-dom';
-import { getAllUserPantries, editOnePantry} from '../../store/pantries'
+import { getAllUserPantries, editOnePantry, refreshPantries} from '../../store/pantries'
 import './EditPantry.css'
 import { RiFridgeFill } from 'react-icons/ri'
 
@@ -46,6 +46,7 @@ const EditPantryForm = () => {
                 let errs = Object.values(data.errors)
                 setErrors(errs)
             } else{
+                dispatch(refreshPantries())
                 history.push(`/users/${loggedInUser.id}/pantries`)
             }
         }
@@ -53,6 +54,7 @@ const EditPantryForm = () => {
 
     const handleCancel = (e) => {
         e.preventDefault()
+        dispatch(refreshPantries())
         history.push(`/users/${id}/pantries`)
     }
 

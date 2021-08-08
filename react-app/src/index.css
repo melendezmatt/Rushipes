@@ -256,3 +256,8 @@ nav {
     margin-left: 225px;
     margin-bottom: 25px;
 }
+
+.form-errors {
+    color: red;
+    font-weight: bold;
+}

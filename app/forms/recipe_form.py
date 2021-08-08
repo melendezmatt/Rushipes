@@ -9,5 +9,5 @@ class RecipeForm(FlaskForm):
     cook_time=IntegerField('cook_time', validators=[DataRequired('Please provide a cook time')])
     servings=IntegerField('servings', validators=[DataRequired('Please provide the amount of servings')])
     about=StringField('about', validators=[DataRequired('Please provide a description for your recipe.'), Length(max=500, message="The description provided is too long.")])
-    instructions=StringField('instructions', validators=[DataRequired('Please provide instructions for your recipe', Length(max=500, message="The instructions provided are too long."))])
+    instructions=StringField('instructions', validators=[DataRequired('Please provide instructions for your recipe'), Length(max=500, message="The instructions provided are too long.")])
     type=IntegerField('type', validators=[DataRequired('Please provide a type for your precipe.')])

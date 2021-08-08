@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom';
-import { createOnePantry } from '../../store/pantries'
+import { createOnePantry, refreshPantries } from '../../store/pantries'
 import './NewPantry.css'
 import { RiFridgeFill } from 'react-icons/ri'
 
@@ -34,6 +34,7 @@ const NewPantryForm = () => {
                 let errs = Object.values(data.errors)
                 setErrors(errs)
             } else{
+                dispatch(refreshPantries())
                 history.push(`/users/${loggedInUser.id}/pantries`)
             }
         }
@@ -57,6 +58,7 @@ const NewPantryForm = () => {
 
     const handleCancel = (e) => {
         e.preventDefault()
+        dispatch(refreshPantries())
         history.push(`/users/${loggedInUser?.id}/pantries`)
     }
 
