@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { useHistory } from 'react-router-dom';
-import { createOnePantry } from '../../store/pantries'
+import { createOnePantry, refreshPantries } from '../../store/pantries'
 import './NewPantry.css'
 import { RiFridgeFill } from 'react-icons/ri'
 
@@ -30,15 +30,15 @@ const NewPantryForm = () => {
 
         const data = await dispatch(createOnePantry(formInfo))
         if (data) {
-            if(data.errors){
-                let errs = Object.keys(data.errors)
+            if(data.errors) {
+                let errs = Object.values(data.errors)
                 setErrors(errs)
             } else{
+                dispatch(refreshPantries())
                 history.push(`/users/${loggedInUser.id}/pantries`)
             }
         }
     }
-
 
     const updatePantryName = (e) => {
         setPantryName(e.target.value);
@@ -58,6 +58,7 @@ const NewPantryForm = () => {
 
     const handleCancel = (e) => {
         e.preventDefault()
+        dispatch(refreshPantries())
         history.push(`/users/${loggedInUser?.id}/pantries`)
     }
 
@@ -68,7 +69,7 @@ const NewPantryForm = () => {
                 <form onSubmit={onSubmit}  className='actual-form'>
                     <div className="form-errors">
                     {errors && errors.map(error => (
-                        <li key={error}>{error + " field is required"}</li>
+                        <li key={error}>{error}</li>
                     ))}
                     </div>
                 <div className="form-question">
@@ -81,7 +82,7 @@ const NewPantryForm = () => {
                         name='pantryName'
                         onChange={updatePantryName}
                         value={pantryName}
-                        required={true}
+                        placeholder="Pantry Name"
                         ></input>
                     </div>
                 </div>
@@ -94,9 +95,9 @@ const NewPantryForm = () => {
                     name='about'
                     onChange={updateAbout}
                     value={about}
-                    required={true}
                     rows='5'
                     cols='40'
+                    placeholder='Tell us about your pantry!'
                     ></textarea>
                     </div>
                 </div>
@@ -110,7 +111,7 @@ const NewPantryForm = () => {
                         name='location'
                         onChange={updateLocation}
                         value={location}
-                        required={true}
+                        placeholder="Where is your pantry?"
                         ></input>
                     </div>
                 </div>
@@ -124,6 +125,7 @@ const NewPantryForm = () => {
                         name='pantryImage'
                         onChange={updatePantryImage}
                         value={pantryImage}
+                        placeholder='Show us your pantry!'
                         ></input>
                     </div>
                 </div>

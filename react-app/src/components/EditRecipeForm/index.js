@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux'
 import { useHistory, useParams } from 'react-router-dom';
-import { editOneRecipe } from '../../store/recipes'
+import { editOneRecipe, refreshRecipes } from '../../store/recipes'
 import { GiCookingPot } from 'react-icons/gi'
 import './EditRecipe.css'
 
@@ -46,9 +46,10 @@ const EditRecipeForm = () => {
         const data = await dispatch(editOneRecipe(formInfo, recipeId))
         if (data) {
             if(data.errors){
-                let errs = Object.keys(data.errors)
+                let errs = Object.values(data.errors)
                 setErrors(errs)
             } else{
+                dispatch(refreshRecipes())
                 history.push(`/users/${loggedInUser.id}/recipes`)
             }
         }
@@ -88,17 +89,18 @@ const EditRecipeForm = () => {
 
     const handleCancel = (e) => {
         e.preventDefault()
+        dispatch(refreshRecipes())
         history.push(`/users/${id}/recipes`)
     }
 
     return (
         <div className='form-container'>
             <div className='form-inner-container'>
-            <h2> <GiCookingPot /> New Recipe <GiCookingPot /> </h2>
+            <h2> <GiCookingPot /> Edit Recipe <GiCookingPot /> </h2>
         <form onSubmit={onSubmit} className='actual-form'>
             <div className="form-errors">
             {errors && errors.map(error => (
-                <li key={error}>{error + " field is required"}</li>
+                <li key={error}>{error}</li>
             ))}
             </div>
         <div className="form-question">
@@ -111,7 +113,7 @@ const EditRecipeForm = () => {
                 name='recipeName'
                 onChange={updateRecipeName}
                 value={recipeName}
-                required={true}
+                placeholder='Recipe Name'
                 ></input>
             </div>
         </div>
@@ -124,7 +126,9 @@ const EditRecipeForm = () => {
                 name='about'
                 onChange={updateAbout}
                 value={about}
-                required={true}
+                rows='5'
+                cols='40'
+                placeholder='Tell us about your recipe!'
                 ></textarea>
             </div>
         </div>
@@ -137,7 +141,9 @@ const EditRecipeForm = () => {
                 name='instructions'
                 onChange={updateInstructions}
                 value={instructions}
-                required={true}
+                rows='5'
+                cols='40'
+                placeholder='How do you make your recipe?'
                 ></textarea>
             </div>
         </div>
@@ -151,6 +157,7 @@ const EditRecipeForm = () => {
                 name='recipeImage'
                 onChange={updateRecipeImage}
                 value={recipeImage}
+                placeholder='Show us your recipe!'
                 ></input>
             </div>
         </div>
@@ -164,7 +171,6 @@ const EditRecipeForm = () => {
                 name='prepTime'
                 onChange={updatePrepTime}
                 value={prepTime}
-                required={true}
                 min='5'
                 ></input>
             </div>
@@ -179,7 +185,6 @@ const EditRecipeForm = () => {
                 name='cookTime'
                 onChange={updateCookTime}
                 value={cookTime}
-                required={true}
                 min='5'
                 ></input>
             </div>
@@ -194,7 +199,6 @@ const EditRecipeForm = () => {
                 name='servings'
                 onChange={updateServings}
                 value={servings}
-                required={true}
                 min='1'
                 ></input>
             </div>

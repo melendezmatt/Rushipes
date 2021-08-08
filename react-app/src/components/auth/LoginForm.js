@@ -15,7 +15,6 @@ const LoginForm = () => {
   const onLogin = async (e) => {
     e.preventDefault();
     const data = await dispatch(login(email, password));
-    history.push('/');
     if (data) {
       setErrors(data);
     }
@@ -42,7 +41,7 @@ const LoginForm = () => {
     <div className='log-in-container'>
       <div className='log-in-inner'>
         <form onSubmit={onLogin}>
-          <div>
+          <div className='form-errors'>
             {errors.map((error, ind) => (
               <div key={ind}>{error}</div>
             ))}
