@@ -5,8 +5,7 @@ import LoginForm from './components/auth/LoginForm';
 import SignUpForm from './components/auth/SignUpForm';
 import NavBar from './components/NavBar';
 import ProtectedRoute from './components/auth/ProtectedRoute';
-import UsersList from './components/UsersList';
-import User from './components/User';
+
 import AllPantries from './components/AllPantries';
 import SinglePantry from './components/SinglePantry';
 import NewPantryForm from './components/NewPantry';
@@ -20,6 +19,7 @@ import SplashPage from './components/SplashPage'
 import AboutMe from './components/AboutMe'
 import LandingPage from './components/LandingPage'
 import CatchPage from './components/CatchPage';
+import Footer from './components/Footer'
 
 function App() {
   const [loaded, setLoaded] = useState(false);
@@ -42,19 +42,13 @@ function App() {
         <Route path='/login' exact={true}>
           <LoginForm />
           <SplashPage />
+          <Footer/>
         </Route>
         <Route path='/sign-up' exact={true}>
           <SignUpForm />
           <SplashPage />
+          <Footer/>
         </Route>
-        <ProtectedRoute path='/users' exact={true}>
-          <NavBar />
-          <UsersList/>
-        </ProtectedRoute>
-        <ProtectedRoute path='/users/:userId' exact={true}>
-          <NavBar />
-          <User />
-        </ProtectedRoute>
         <ProtectedRoute path='/' exact={true} >
           <NavBar />
           <LandingPage />
