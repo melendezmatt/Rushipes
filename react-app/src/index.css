@@ -63,6 +63,12 @@ body {
     color: rgb(214, 214, 204);
 }
 
+.input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
 .log-in-container {
     display: flex;
     justify-content: flex-end;
@@ -74,8 +80,20 @@ body {
     padding: 20px;
 }
 
+.sign-up-inner {
+    padding: 20px;
+}
+
+.sign-inner input {
+    margin-left: 20px;
+}
+
 .log-in-inner label, input {
     display: inline-block;
+}
+
+.log-in-inner input {
+    margin-left: 20px;
 }
 
 .log-in-buttons {

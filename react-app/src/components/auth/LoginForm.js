@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Redirect, useHistory } from 'react-router-dom';
+import { Redirect, useHistory} from 'react-router-dom';
 import { login } from '../../store/session';
 import DemoUserButton from './DemoUserButton';
 
@@ -46,31 +46,32 @@ const LoginForm = () => {
               <div key={ind}>{error}</div>
             ))}
           </div>
-          <div>
-            <label htmlFor='email'>Email</label>
-            <input
-              name='email'
-              type='text'
-              placeholder='Email'
-              value={email}
-              onChange={updateEmail}
-            />
-          </div>
-          <div>
-            <label htmlFor='password'>Password</label>
-            <input
-              name='password'
-              type='password'
-              placeholder='Password'
-              value={password}
-              onChange={updatePassword}
-            />
-            <div className='log-in-buttons'>
-              <button type='submit'>Login</button>
-              <button onClick={onClick}> Sign Up</button>
-              <DemoUserButton />
+          <div className='input-container'>
+            <div>
+              <label htmlFor='email'>Email</label>
+              <input
+                name='email'
+                type='text'
+                placeholder='Email'
+                value={email}
+                onChange={updateEmail}
+              />
             </div>
-
+            <div>
+              <label htmlFor='password'>Password</label>
+              <input
+                name='password'
+                type='password'
+                placeholder='Password'
+                value={password}
+                onChange={updatePassword}
+              />
+            </div>
+          </div>
+          <div className='log-in-buttons'>
+            <button type='submit'>Login</button>
+            <button onClick={onClick}> Sign Up</button>
+            <DemoUserButton />
           </div>
         </form>
       </div>
