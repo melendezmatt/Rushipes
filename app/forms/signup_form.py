@@ -22,8 +22,9 @@ def username_exists(form, field):
 def is_email(form, field):
     email=form.data['email']
     if '@' not in email:
-        if '.' not in email:
-            raise ValidationError('Invalid email address')
+        raise ValidationError('Invalid email address')
+    if '.' not in email:
+        raise ValidationError('Invalid email address')
 
 class SignUpForm(FlaskForm):
     username = StringField(
