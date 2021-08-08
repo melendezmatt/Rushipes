@@ -111,7 +111,6 @@ const EditRecipeForm = () => {
                 name='recipeName'
                 onChange={updateRecipeName}
                 value={recipeName}
-                required={true}
                 ></input>
             </div>
         </div>
@@ -124,7 +123,6 @@ const EditRecipeForm = () => {
                 name='about'
                 onChange={updateAbout}
                 value={about}
-                required={true}
                 ></textarea>
             </div>
         </div>
@@ -137,7 +135,6 @@ const EditRecipeForm = () => {
                 name='instructions'
                 onChange={updateInstructions}
                 value={instructions}
-                required={true}
                 ></textarea>
             </div>
         </div>
@@ -164,7 +161,6 @@ const EditRecipeForm = () => {
                 name='prepTime'
                 onChange={updatePrepTime}
                 value={prepTime}
-                required={true}
                 min='5'
                 ></input>
             </div>
@@ -179,7 +175,6 @@ const EditRecipeForm = () => {
                 name='cookTime'
                 onChange={updateCookTime}
                 value={cookTime}
-                required={true}
                 min='5'
                 ></input>
             </div>
@@ -194,7 +189,6 @@ const EditRecipeForm = () => {
                 name='servings'
                 onChange={updateServings}
                 value={servings}
-                required={true}
                 min='1'
                 ></input>
             </div>
