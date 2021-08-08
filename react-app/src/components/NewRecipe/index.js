@@ -106,6 +106,7 @@ const NewRecipeForm = () => {
                     name='recipeName'
                     onChange={updateRecipeName}
                     value={recipeName}
+                    placeholder='Recipe Name'
                     ></input>
                 </div>
             </div>
@@ -120,6 +121,7 @@ const NewRecipeForm = () => {
                     value={about}
                     rows='5'
                     cols='40'
+                    placeholder='Tell us about your recipe!'
                     ></textarea>
                 </div>
             </div>
@@ -134,6 +136,7 @@ const NewRecipeForm = () => {
                     value={instructions}
                     rows='5'
                     cols='40'
+                    placeholder='How do you make your recipe?'
                     ></textarea>
                 </div>
             </div>
@@ -147,6 +150,7 @@ const NewRecipeForm = () => {
                     name='recipeImage'
                     onChange={updateRecipeImage}
                     value={recipeImage}
+                    placeholder='Show us your recipe!'
                     ></input>
                 </div>
             </div>

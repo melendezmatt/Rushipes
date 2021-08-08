@@ -96,7 +96,7 @@ const EditRecipeForm = () => {
     return (
         <div className='form-container'>
             <div className='form-inner-container'>
-            <h2> <GiCookingPot /> New Recipe <GiCookingPot /> </h2>
+            <h2> <GiCookingPot /> Edit Recipe <GiCookingPot /> </h2>
         <form onSubmit={onSubmit} className='actual-form'>
             <div className="form-errors">
             {errors && errors.map(error => (
@@ -113,6 +113,7 @@ const EditRecipeForm = () => {
                 name='recipeName'
                 onChange={updateRecipeName}
                 value={recipeName}
+                placeholder='Recipe Name'
                 ></input>
             </div>
         </div>
@@ -125,6 +126,9 @@ const EditRecipeForm = () => {
                 name='about'
                 onChange={updateAbout}
                 value={about}
+                rows='5'
+                cols='40'
+                placeholder='Tell us about your recipe!'
                 ></textarea>
             </div>
         </div>
@@ -137,6 +141,9 @@ const EditRecipeForm = () => {
                 name='instructions'
                 onChange={updateInstructions}
                 value={instructions}
+                rows='5'
+                cols='40'
+                placeholder='How do you make your recipe?'
                 ></textarea>
             </div>
         </div>
@@ -150,6 +157,7 @@ const EditRecipeForm = () => {
                 name='recipeImage'
                 onChange={updateRecipeImage}
                 value={recipeImage}
+                placeholder='Show us your recipe!'
                 ></input>
             </div>
         </div>

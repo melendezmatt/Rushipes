@@ -82,6 +82,7 @@ const NewPantryForm = () => {
                         name='pantryName'
                         onChange={updatePantryName}
                         value={pantryName}
+                        placeholder="Pantry Name"
                         ></input>
                     </div>
                 </div>
@@ -96,6 +97,7 @@ const NewPantryForm = () => {
                     value={about}
                     rows='5'
                     cols='40'
+                    placeholder='Tell us about your pantry!'
                     ></textarea>
                     </div>
                 </div>
@@ -109,6 +111,7 @@ const NewPantryForm = () => {
                         name='location'
                         onChange={updateLocation}
                         value={location}
+                        placeholder="Where is your pantry?"
                         ></input>
                     </div>
                 </div>
@@ -122,6 +125,7 @@ const NewPantryForm = () => {
                         name='pantryImage'
                         onChange={updatePantryImage}
                         value={pantryImage}
+                        placeholder='Show us your pantry!'
                         ></input>
                     </div>
                 </div>

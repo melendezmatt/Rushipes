@@ -48,6 +48,7 @@ const SingleRecipe = () => {
                 </div>
             </div>
             <div className='info-container'>
+                <h3> Recipe Info</h3>
                 <p> Cook Time: {currRecipe?.cook_time} mins</p>
                 <p> Prep Time: {currRecipe?.prep_time} mins</p>
                 <p> Total Time: {currRecipe?.cook_time + currRecipe?.prep_time} mins</p>
