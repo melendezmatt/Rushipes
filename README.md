@@ -6,11 +6,10 @@ This is an application to create pantry stores and write recipes as well as docu
 
 ## Technologies
 
-> * Flask
-> * React/Redux
-> * JavaScript
-> * Postgres
-> * Python
+> * Frontend: Javascript, React, Redux
+> * Backend: Python
+> * Relational Database: PostgreSQL
+> * Styling: CSS and HTML5
 
 ## Summary
 
