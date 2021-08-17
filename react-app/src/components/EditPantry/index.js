@@ -79,71 +79,71 @@ const EditPantryForm = () => {
             <div className='form-inner-container'>
             <h2> <RiFridgeFill /> Edit Pantry <RiFridgeFill /> </h2>
             <form onSubmit={onSubmit} className='actual-form'>
-            <div className="form-errors">
-            {errors && errors.map(error => (
-                <li key={error}>{error}</li>
-            ))}
-            </div>
-        <div className="form-question">
-            <div className="form-question-label">
-                <label>Pantry Name</label>
-            </div>
-            <div className="form-input">
-                <input
-                type='text'
-                name='pantryName'
-                onChange={updatePantryName}
-                value={pantryName}
-                placeholder="Pantry Name"
-                ></input>
-            </div>
-        </div>
-        <div className="form-question">
-            <div className="form-question-label">
-                <label>About</label>
-            </div>
-            <div className="form-text-area">
-                    <textarea
-                    name='about'
-                    onChange={updateAbout}
-                    value={about}
-                    rows='5'
-                    cols='40'
-                    placeholder='Tell us about your pantry!'
-                    ></textarea>
+                <div className="form-errors">
+                {errors && errors.map(error => (
+                    <li key={error}>{error}</li>
+                ))}
                 </div>
-        </div>
-        <div className="form-question">
-            <div className="form-question-label">
-                <label>Location</label>
-            </div>
-            <div className="form-input">
-                <input
-                type='text'
-                name='location'
-                onChange={updateLocation}
-                value={location}
-                placeholder="Where is your pantry?"
-                ></input>
-            </div>
-        </div>
-        <div className="form-question">
-            <div className="form-question-label">
-                <label>Pantry Image</label>
-            </div>
-            <div className="form-input">
-                <input
-                type='text'
-                name='pantryImage'
-                onChange={updatePantryImage}
-                value={pantryImage}
-                placeholder='Show us your pantry!'
-                ></input>
-            </div>
-        </div>
-        <button type='submit'> Edit Pantry!</button>
-        <button type='click' onClick={handleCancel}> Cancel </button>
-        </form>
+                <div className="form-question">
+                    <div className="form-question-label">
+                        <label>Pantry Name</label>
+                    </div>
+                    <div className="form-input">
+                        <input
+                        type='text'
+                        name='pantryName'
+                        onChange={updatePantryName}
+                        value={pantryName}
+                        placeholder="Pantry Name"
+                        ></input>
+                    </div>
+                </div>
+                <div className="form-question">
+                    <div className="form-question-label">
+                        <label>About</label>
+                    </div>
+                    <div className="form-text-area">
+                            <textarea
+                            name='about'
+                            onChange={updateAbout}
+                            value={about}
+                            rows='5'
+                            cols='40'
+                            placeholder='Tell us about your pantry!'
+                            ></textarea>
+                        </div>
+                </div>
+                <div className="form-question">
+                    <div className="form-question-label">
+                        <label>Location</label>
+                    </div>
+                    <div className="form-input">
+                        <input
+                        type='text'
+                        name='location'
+                        onChange={updateLocation}
+                        value={location}
+                        placeholder="Where is your pantry?"
+                        ></input>
+                    </div>
+                </div>
+                <div className="form-question">
+                    <div className="form-question-label">
+                        <label>Pantry Image</label>
+                    </div>
+                    <div className="form-input">
+                        <input
+                        type='text'
+                        name='pantryImage'
+                        onChange={updatePantryImage}
+                        value={pantryImage}
+                        placeholder='Show us your pantry!'
+                        ></input>
+                    </div>
+                </div>
+                <button type='submit'> Edit Pantry!</button>
+                <button type='click' onClick={handleCancel}> Cancel </button>
+            </form>
         </div>
     </div>
     )
